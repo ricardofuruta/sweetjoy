@@ -69,6 +69,6 @@ class BakersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def baker_params
-      params.require(:baker).permit(:firstname, :lastname, :description, :address)
+      params.require(:baker).permit(:firstname, :lastname, :description, :address, :photo, :photo_cache)
     end
 end
