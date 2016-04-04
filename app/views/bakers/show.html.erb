@@ -20,5 +20,10 @@
   <%= @baker.address %>
 </p>
 
+<p>
+  <strong>Photo:</strong>
+<%= image_tag @baker.photo.url(:bright_face) %>
+</p>
+
 <%= link_to 'Edit', edit_baker_path(@baker) %> |
 <%= link_to 'Back', bakers_path %>
