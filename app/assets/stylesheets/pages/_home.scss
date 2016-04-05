@@ -8,7 +8,7 @@
 
   color: white;
   text-align: center;
-  background-image: linear-gradient(-225deg, rgba(2,1,1,0.6) 30%, rgba(1,1,1,0.6) 50%), url('bolo colorido.jpg');
+  background-image: linear-gradient(-225deg, rgba(2,1,1,0.6) 30%, rgba(1,1,1,0.6) 50%), image-url('bolo colorido.jpg');
   background-attachment: fixed;
   height: calc(100vh - 70px);
   max: 100%;
@@ -63,7 +63,7 @@
 
   color: white;
   text-align: center;
-  background-image: url('Sweet_Joy_profile.jpg') ;
+  background-image: image-url('Sweet_Joy_profile.jpg') ;
 
   height: calc(100vh - 70px);
   max: 100%;
@@ -199,15 +199,15 @@ h3 {
 
 
 #pick-a {
-  background-image: url('Sweet Joy 007 web.jpg') ;
+  background-image: image-url('Sweet Joy 007 web.jpg') ;
 }
 
 #pick-b {
-  background-image: url('Sweet Joy 013 web.jpg') ;
+  background-image: image-url('Sweet Joy 013 web.jpg') ;
 }
 
 #pick-c {
-  background-image: url('Sweet Joy 100 web (1).jpg') ;
+  background-image: image-url('Sweet Joy 100 web (1).jpg') ;
 }
 
 
