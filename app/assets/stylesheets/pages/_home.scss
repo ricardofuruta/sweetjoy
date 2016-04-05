@@ -2,3 +2,241 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+
+.banner {
+
+  color: white;
+  text-align: center;
+  background-image: linear-gradient(-225deg, rgba(2,1,1,0.6) 30%, rgba(1,1,1,0.6) 50%), url('bolo colorido.jpg');
+  background-attachment: fixed;
+  height: calc(100vh - 70px);
+  max: 100%;
+  top-margin: 0px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+.how-it-works-btn {
+  margin-bottom: 20px
+}
+
+#footer {
+    background: #333 none repeat scroll 0% 0%;
+    padding: 30px 0px;
+    color: #CCC;
+}
+
+
+.padded {
+    padding: 100px 0px;
+}
+
+.padded2 {
+    padding: 30px 0px;
+    color: white;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+.bannernew {
+
+  color: white;
+  text-align: center;
+  background-image: url('Sweet_Joy_profile.jpg') ;
+
+  height: calc(100vh - 70px);
+  max: 100%;
+  top-margin: 0px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannernew h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.bannernew p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+
+.card {
+    height: 175px;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
+    background-size: cover !important;
+    color: #FFF;
+    position: relative;
+    border-radius: 5%;
+}
+
+
+.card {
+  height: 250px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  // background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('paris_card.jpg') ;
+  color: white;
+  position: relative;
+}
+
+
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 24px;
+}
+.card-description p {
+  font-size: 50px;
+  }
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover{
+  opacity: 0.1;
+}
+
+
+
+h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  }
+
+
+.btn-medium {
+  color: #999999;
+  border: 1px solid #999999;
+  padding: 10px 15px 10px 10px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+.btn-medium:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #999999;
+}
+
+
+#trust {
+    color: #888;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+.avatar {
+  width: 30px;
+  border-radius: 50%;
+  background-image: url('wedding.jpg')
+}
+.avatar-large {
+  width: 50px;
+  border-radius: 50%;
+}
+.avatar-bordered {
+  width: 30px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+
+.wrapper-grey {
+  background-color: #FFFFAF;
+}
+
+
+#pick-a {
+  background-image: url('Sweet Joy 007 web.jpg') ;
+}
+
+#pick-b {
+  background-image: url('Sweet Joy 013 web.jpg') ;
+}
+
+#pick-c {
+  background-image: url('Sweet Joy 100 web (1).jpg') ;
+}
+
+
+.blue-background {
+    background-color: #E5F4F7;
+    border: 1px solid #CCE9F0;
+    border-radius: 5px;
+    display: block;
+    color: #333;
+    padding: 25px 0px 30px;
+    text-align: center;
+}
+
+#large-icon {
+  size: 100px;
+}
+
+
+.btn-start {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-color: white;
+  background: #E5F4F7;
+  transition: background 0.3s ease;
+}
+.btn-start {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}

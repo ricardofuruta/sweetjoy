@@ -11,6 +11,7 @@ gem 'redis'
 gem 'cloudinary'
 gem 'carrierwave'
 
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
