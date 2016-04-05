@@ -1,29 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @baker.firstname %>
-</p>
+  <p>
+    <strong>Firstname:</strong>
+    <%= @baker.firstname %>
+  </p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @baker.lastname %>
-</p>
+  <p>
+    <strong>Lastname:</strong>
+    <%= @baker.lastname %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @baker.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @baker.description %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @baker.address %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @baker.address %>
+  </p>
 
-<p>
-  <strong>Photo:</strong>
-<%= image_tag @baker.photo.url(:bright_face) %>
-</p>
+  <p>
+    <strong>Photo:</strong>
+    <%= image_tag @baker.photo.url(:bright_face) %>
+  </p>
 
-<%= link_to 'Edit', edit_baker_path(@baker) %> |
-<%= link_to 'Back', bakers_path %>
+  <%= link_to 'Edit', edit_baker_path(@baker) %> |
+  <%= link_to 'Back', bakers_path %>
+</div>

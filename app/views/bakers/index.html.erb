@@ -1,33 +1,44 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Bakers</h1>
+    <h2 class="text-center">Your own personal baker is just next to you!</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Description</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class='container text-center' id="map" style="width: 50%; height: 400px;"></div>
 
-  <tbody>
-    <% @bakers.each do |baker| %>
-      <tr>
-        <td><%= baker.firstname %></td>
-        <td><%= baker.lastname %></td>
-        <td><%= baker.description %></td>
-        <td><%= baker.address %></td>
-        <td><%= link_to 'Show', baker %></td>
-        <td><%= link_to 'Edit', edit_baker_path(baker) %></td>
-        <td><%= link_to 'Destroy', baker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="wrapper-grey padded">
+  <div class="container">
 
-<br>
+    <div class="row">
+     <% @bakers.each do |baker| %>
 
-<%= link_to 'New Baker', new_baker_path %>
+     <div class="col-xs-12 col-sm-6">
+
+       <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path baker.products.first.photo %>');">
+
+       <div class="card-category"> <%= image_tag baker.photo, class: "card-user avatar avatar-large" %> <%= baker.firstname %> <%= baker.lastname %></div>
+       <div class="card-description">
+        <h2><%= baker.products.first.name %></h2>
+        <p><%= baker.products.first.description %></p>
+      </div>
+      <%= link_to baker_path(baker.id), class: "card-link" %>
+    </div>
+
+  </div>
+
+  <% end %>
+</div>
+</div>
+</div>
+
+
+
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+$(document).on('ready', function() {
+handler = Gmaps.build('Google');
+handler.buildMap({ internal: { id: 'map' } }, function(){
+markers = handler.addMarkers(<%= raw @markers.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+});
+})
+<% end %>
+<% end %>
