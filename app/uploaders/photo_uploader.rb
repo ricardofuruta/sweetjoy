@@ -11,7 +11,12 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   version :bright_face do
     cloudinary_transformation effect: "brightness:30", radius: 20,
-      width: 150, height: 150, crop: :thumb, gravity: :face
+      width: 300, height: 300, crop: :thumb, gravity: :face
+  end
+
+    version :product_profile do
+    cloudinary_transformation radius: 20,
+      width: 600, height: 600, crop: :thumb, gravity: :face
   end
 end
   # Include RMagick or MiniMagick support:
