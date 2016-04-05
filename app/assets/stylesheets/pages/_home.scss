@@ -8,7 +8,8 @@
 
   color: white;
   text-align: center;
-  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('amazingbackground.jpg');
+  background-image: linear-gradient(-225deg, rgba(2,1,1,0.6) 30%, rgba(1,1,1,0.6) 50%), url('bolo colorido.jpg');
+  background-attachment: fixed;
   height: calc(100vh - 70px);
   max: 100%;
   top-margin: 0px;
@@ -62,8 +63,8 @@
 
   color: white;
   text-align: center;
-  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('sunset_at_my_home.jpg') ;
-  background-attachment: fixed;
+  background-image: url('Sweet_Joy_profile.jpg') ;
+
   height: calc(100vh - 70px);
   max: 100%;
   top-margin: 0px;
@@ -73,6 +74,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .bannernew h1 {
   font-size: 50px;
   font-weight: bold;
@@ -140,4 +142,101 @@
 }
 .card-link:hover{
   opacity: 0.1;
+}
+
+
+
+h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  }
+
+
+.btn-medium {
+  color: #999999;
+  border: 1px solid #999999;
+  padding: 10px 15px 10px 10px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+.btn-medium:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #999999;
+}
+
+
+#trust {
+    color: #888;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+.avatar {
+  width: 30px;
+  border-radius: 50%;
+  background-image: url('wedding.jpg')
+}
+.avatar-large {
+  width: 50px;
+  border-radius: 50%;
+}
+.avatar-bordered {
+  width: 30px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+
+.wrapper-grey {
+  background-color: #FFFFAF;
+}
+
+
+#pick-a {
+  background-image: url('Sweet Joy 007 web.jpg') ;
+}
+
+#pick-b {
+  background-image: url('Sweet Joy 013 web.jpg') ;
+}
+
+#pick-c {
+  background-image: url('Sweet Joy 100 web (1).jpg') ;
+}
+
+
+.blue-background {
+    background-color: #E5F4F7;
+    border: 1px solid #CCE9F0;
+    border-radius: 5px;
+    display: block;
+    color: #333;
+    padding: 25px 0px 30px;
+    text-align: center;
+}
+
+#large-icon {
+  size: 100px;
+}
+
+
+.btn-start {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-color: white;
+  background: #E5F4F7;
+  transition: background 0.3s ease;
+}
+.btn-start {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
 }
