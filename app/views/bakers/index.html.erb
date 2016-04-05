@@ -1,9 +1,9 @@
 
-<h2 class="text-center">Your own personal baker is just next to you!</h2>
+<h2 class="text-center bakers_title">Your own personal baker is just next to you!</h2>
 
-<div class='container text-center' id="map" style="width: 50%; height: 400px;"></div>
+<div class='container text-center' id="map" style="width: 70%; height: 300px;"></div>
 
-<div class="wrapper-grey padded">
+<div class="wrapper padded_bakers">
   <div class="container">
 
     <div class="row">
@@ -13,10 +13,9 @@
 
        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path baker.products.first.photo %>');">
 
-         <div class="card-category"> <%= image_tag baker.photo, class: "card-user avatar avatar-large" %> <%= baker.firstname %> <%= baker.lastname %></div>
+         <div class="card-category"> <%= image_tag baker.photo, class: "avatar-large" %> <%= baker.firstname %> <%= baker.lastname %></div>
          <div class="card-description">
           <h2><%= baker.products.first.name %></h2>
-          <p><%= baker.products.first.description %></p>
         </div>
         <%= link_to baker_path(baker.id), class: "card-link" %>
       </div>
