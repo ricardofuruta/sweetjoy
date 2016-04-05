@@ -5,6 +5,11 @@ class BakersController < ApplicationController
   # GET /bakers.json
   def index
     @bakers = Baker.all
+     # Let's DYNAMICALLY build the markers for the view.
+     @markers = Gmaps4rails.build_markers(@bakers) do |baker, marker|
+       marker.lat baker.latitude
+       marker.lng baker.longitude
+    end
   end
 
   # GET /bakers/1
@@ -71,4 +76,4 @@ class BakersController < ApplicationController
     def baker_params
       params.require(:baker).permit(:firstname, :lastname, :description, :address, :photo, :photo_cache)
     end
-end
+  end
