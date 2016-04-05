@@ -16,7 +16,7 @@ gem "gmaps4rails"
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
-
+gem 'rails_12factor', group: :production
 
 gem 'sass-rails'
 gem 'jquery-rails'
