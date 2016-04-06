@@ -1,0 +1,38 @@
+.media {
+  display: flex;
+}
+.media-body {
+  flex: 1 1 auto;
+  padding: 20px;
+}
+
+.media-aside {
+  flex: 0 0 400px;
+  padding: 30px;
+  align-self: stretch;
+  // background: #F8F7F7;
+  border-left: 1px solid #f0efef;
+}
+.media-section {
+  margin: 40px auto;
+}
+.media-section:first-child {
+  margin-top: 0;
+}
+.media-section:last-child {
+  margin-bottom: 0;
+}
+#flat-list{
+  margin-top: 20px;
+  padding-top: 5px;
+}
+
+#container-profile {
+  border-color: #000000;
+}
+
+
+.wrapper-grey {
+    background: #F4F4F4 none repeat scroll 0% 0%;
+    display: flex;
+}

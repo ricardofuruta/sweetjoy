@@ -1,18 +1,18 @@
-<div class='container'>
+<div class='container wrapper-grey'>
+<div class="media-section media-aside">
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Firstname:</strong>
-    <%= @baker.firstname %>
+  <h3>
+    <strong><%= @baker.firstname %> <%= @baker.lastname %></strong>
+
+  </h3>
+
+  <p class="media-aside">
+    <%= image_tag @baker.photo.url(:bright_face) %>
   </p>
 
   <p>
-    <strong>Lastname:</strong>
-    <%= @baker.lastname %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
+    <strong>About me:</strong>
     <%= @baker.description %>
   </p>
 
@@ -21,11 +21,7 @@
     <%= @baker.address %>
   </p>
 
-  <p>
-    <strong>Photo:</strong>
-    <%= image_tag @baker.photo.url(:bright_face) %>
-  </p>
-
   <%= link_to 'Edit', edit_baker_path(@baker) %> |
   <%= link_to 'Back', bakers_path %>
+</div>
 </div>
