@@ -8,7 +8,7 @@
 
   color: white;
   text-align: center;
-  background-image: linear-gradient(-225deg, rgba(2,1,1,0.6) 30%, rgba(1,1,1,0.6) 50%), image-url('http://res.cloudinary.com/ricardofuruta/image/upload/v1459852318/ctbwyer9trj1nfawikdh.jpg');
+  background-image: linear-gradient(-225deg, rgba(2,1,1,0.6) 30%, rgba(1,1,1,0.6) 50%), url('bolo colorido.jpg');
   background-attachment: fixed;
   height: calc(100vh - 70px);
   max: 100%;
@@ -63,7 +63,7 @@
 
   color: white;
   text-align: center;
-  background-image: image-url('http://res.cloudinary.com/ricardofuruta/image/upload/v1459806787/Sweet_Joy_004_web_lhbjro.jpg') ;
+  background-image: url('Sweet_Joy_profile.jpg') ;
 
   height: calc(100vh - 70px);
   max: 100%;
@@ -105,7 +105,6 @@
   // background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('paris_card.jpg') ;
   color: white;
   position: relative;
-  margin: 20px;
 }
 
 
@@ -180,7 +179,7 @@ h3 {
 .avatar {
   width: 30px;
   border-radius: 50%;
-  background-image: url('http://res.cloudinary.com/ricardofuruta/image/upload/v1459806786/Bolo_Casamento_uvwgwi.jpg')
+  background-image: url('wedding.jpg')
 }
 .avatar-large {
   width: 50px;
@@ -199,15 +198,15 @@ h3 {
 
 
 #pick-a {
-  background-image: image-url('http://res.cloudinary.com/ricardofuruta/image/upload/v1459806785/Sweet_Joy_007_web_naxuej.jpg') ;
+  background-image: url('Sweet Joy 007 web.jpg') ;
 }
 
 #pick-b {
-  background-image: image-url('http://res.cloudinary.com/ricardofuruta/image/upload/v1459806784/Sweet_Joy_013_web_jxd75w.jpg') ;
+  background-image: url('Sweet Joy 013 web.jpg') ;
 }
 
 #pick-c {
-  background-image: image-url('http://res.cloudinary.com/ricardofuruta/image/upload/v1459852317/oa86z146i4yexpftp9o0.jpg') ;
+  background-image: url('Sweet Joy 100 web (1).jpg') ;
 }
 
 
@@ -241,3 +240,4 @@ h3 {
   text-decoration: none;
   color: white;
 }
+Status
