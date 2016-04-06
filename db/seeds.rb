@@ -13,21 +13,21 @@ baker1 = Baker.create([
    lastname: 'Alves',
    description: 'Chef Patisserie, winner of the 2014 prize of best candy maker of Curitiba',
    address: 'Rue de la Collégiale 27, Bruxelles',
-   photo: remote_photo_url('http://res.cloudinary.com/ricardofuruta/image/upload/c_scale,h_300,w_300/v1459806781/IMG_3854_krmace.jpg')
+   photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_scale,h_300,w_300/v1459806781/IMG_3854_krmace.jpg')
    }])
 baker2 = Baker.create([
  { firstname: 'Binita',
    lastname: 'Ramla',
    description: 'I give up a carreer in software development to follow my real passion, making amazing cakes',
    address: 'Rue du Marché aux Herbes 28, Bruxelles',
-   photo: remote_photo_url('http://res.cloudinary.com/ricardofuruta/image/upload/c_scale,w_300/v1459851289/binita_msq6x0.jpg')
+   photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_scale,w_300/v1459851289/binita_msq6x0.jpg')
    }])
 baker3 = Baker.create([
  { firstname: 'Ricardo',
    lastname: 'Furuta',
    description: 'I lived for two years in Paris where I mastered the techniques of cake patisserie.',
    address: 'Rue des Teinturiers 19, Bruxelles',
-   photo: remote_photo_url('http://res.cloudinary.com/ricardofuruta/image/upload/c_crop,h_300,w_300/v1459809436/422569_346632905375144_2138829642_n_yn2o5k.jpg')
+   photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_crop,h_300,w_300/v1459809436/422569_346632905375144_2138829642_n_yn2o5k.jpg')
    }])
 
 
