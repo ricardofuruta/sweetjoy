@@ -12,12 +12,11 @@
      <div class="col-xs-12 col-sm-6">
 
        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path baker.products.first.photo %>');">
+        <a class="card-link" href="bakers/<%= baker.id %>"></a>
 
          <div class="card-category"> <%= image_tag baker.photo, class: "avatar-large" %> <%= baker.firstname %> <%= baker.lastname %></div>
          <div class="card-description">
           <h2><%= baker.products.first.name %></h2>
-        </div>
-        <%= link_to baker_path(baker.id), class: "card-link" %>
       </div>
 
     </div>
