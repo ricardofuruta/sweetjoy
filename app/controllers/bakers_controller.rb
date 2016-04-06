@@ -1,5 +1,6 @@
 class BakersController < ApplicationController
   before_action :set_baker, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show, :new]
 
   # GET /bakers
   # GET /bakers.json
