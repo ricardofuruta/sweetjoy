@@ -8,7 +8,7 @@
 
   color: white;
   text-align: center;
-  background-image: linear-gradient(-225deg, rgba(2,1,1,0.6) 30%, rgba(1,1,1,0.6) 50%), url('bolo colorido.jpg');
+  background-image: url('bolo colorido.jpg');
   background-attachment: fixed;
   height: calc(100vh - 70px);
   max: 100%;
@@ -147,8 +147,8 @@
 
 
 h3 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 36px;
+  font-family: 'Grand Hotel', cursive;
+  font-size: 50px;
   }
 
 
@@ -160,6 +160,7 @@ h3 {
   font-size: 14px;
   font-weight: lighter;
   opacity: 0.6;
+  width: 100%;
 }
 .btn-medium:hover {
   opacity: 1;
