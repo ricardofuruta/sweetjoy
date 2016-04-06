@@ -1,49 +1,49 @@
 <div class="banner">
-<div class="content">
-<p><h3>Discover sweet creations around you...</h3></p>
+  <div class="content">
+    <p><h3>Discover sweet creations around you...</h3></p>
     <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
+    <form action="bakers" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Enter a full address">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
     </form>
-</div>
+  </div>
 </div>
 
 
-    <div id="trust">
+<div id="trust">
 
   <div class="container text-center padded features">
    <div class="row">
-   <div class="col-xs-12 col-sm-6 col-md-3">
-    <h2>How it works</h2>
-    <p>We source the freshest and best tasting cakes from home bakers around the world</p>
-   <div class="btn-medium">
-    <%= link_to "Get started", products_path %>
+     <div class="col-xs-12 col-sm-6 col-md-3">
+      <h2>How it works</h2>
+      <p>We source the freshest and best tasting cakes from home bakers around the world</p>
+      <div class="btn-medium">
+        <%= link_to "Get started", products_path %>
+      </div>
     </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+     <!-- <img src="images/globe.png" alt=""> -->
+     <i class="fa fa-search fa-4x" id="large-icon"></i>
+     <h2>1.</h2>
+     <p>Select your cake</p>
    </div>
-     <div class="col-xs-12 col-sm-6 col-md-3">
-       <!-- <img src="images/globe.png" alt=""> -->
-        <i class="fa fa-search fa-4x" id="large-icon"></i>
-       <h2>1.</h2>
-       <p>Select your cake</p>
-     </div>
-     <div class="col-xs-12 col-sm-6 col-md-3">
-       <!-- <img src="images/dollar.png" alt=""> -->
-       <i class="fa fa-mouse-pointer fa-4x"></i>
+   <div class="col-xs-12 col-sm-6 col-md-3">
+     <!-- <img src="images/dollar.png" alt=""> -->
+     <i class="fa fa-mouse-pointer fa-4x"></i>
 
-       <h2>2.</h2>
-       <p>Place an order.</p>
-     </div>
-     <div class="col-xs-12 col-sm-6 col-md-3">
-       <!-- <img src="images/beer.png" alt=""> -->
-       <i class="fa fa-birthday-cake fa-4x"></i>
-
-       <h2>3.</h2>
-       <p>Pick up your cake and enjoy!</p>
-     </div>
+     <h2>2.</h2>
+     <p>Place an order.</p>
    </div>
+   <div class="col-xs-12 col-sm-6 col-md-3">
+     <!-- <img src="images/beer.png" alt=""> -->
+     <i class="fa fa-birthday-cake fa-4x"></i>
+
+     <h2>3.</h2>
+     <p>Pick up your cake and enjoy!</p>
+   </div>
+ </div>
 </div>
 </div>
 
@@ -65,7 +65,7 @@
 
        <div class="card" id="pick-a">
         <a class="card-link" href="bakers/1"></a>
-    </div>
+      </div>
     </div>
 
 
@@ -86,29 +86,59 @@
 </div>
 
 
- <div class="cardhow">
+<div class="cardhow">
  <div class="text-center padded">
- <h4>Meet Joicy</h4>
-</div>
+   <h4>Meet Joicy</h4>
  </div>
+</div>
 <div class="bannernew">
 </div>
 
 
 
 <div id="trust">
-<div class="content">
-<div class="container text-center padded features">
-   <div class="row">
-  <!--  <div class="card-user avatar"> -->
+  <div class="content">
+    <div class="container text-center padded features">
+     <div class="row">
+      <!--  <div class="card-user avatar"> -->
 
 
-   <div class="cardhow">
-      <%image_tag "wedding.jpg" %>
-    <p><i>I think baking is a labour of love, passed down from generation to generation.</i></p>
-    <p>Meet <%=link_to "Joicy", bakers_path %> from Curitiba, Brazil</p>
+      <div class="cardhow">
+        <%image_tag "wedding.jpg" %>
+        <p><i>I think baking is a labour of love, passed down from generation to generation.</i></p>
+        <p>Meet <%=link_to "Joicy", bakers_path %> from Curitiba, Brazil</p>
+      </div>
     </div>
-    </div>
+  </div>
 </div>
 </div>
-</div>
+
+<script type="text/javascript">
+  function initializeAutocomplete(id) {
+    var element = document.getElementById(id);
+    if (element) {
+      var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
+      google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    }
+  }
+
+  function onPlaceChanged() {
+    var place = this.getPlace();
+
+  // console.log(place);  // Uncomment this line to view the full object returned by Google API.
+
+  for (var i in place.address_components) {
+    var component = place.address_components[i];
+    for (var j in component.types) {  // Some types are ["country", "political"]
+      var type_element = document.getElementById(component.types[j]);
+    if (type_element) {
+      type_element.value = component.long_name;
+    }
+  }
+}
+}
+
+google.maps.event.addDomListener(window, 'load', function() {
+  initializeAutocomplete('user_input_autocomplete_address');
+});
+</script>
