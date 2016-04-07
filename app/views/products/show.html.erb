@@ -21,10 +21,15 @@
   <%= @product.baker.firstname %>
 </p>
 
-  <strong>Photo:</strong>
+<p>
 <%= image_tag @product.photo.url(:product_profile) %>
 </p>
 
+
+<div class="media"><a href="#" class="btn btn-danger btn-sm" role="button">BUY</a></div>
+
+<div class="media-section">
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+</div>
 </div>
