@@ -50,7 +50,16 @@
     <div class="producttitle"><%= product.baker.firstname %></div>
     <div class="producttitle"><%= product.name %></div>
     <div class="productdescription"><%= product.description %></div>
-    <div class="productprice"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button">BUY</a></div><div class="pricetext"><%= product.price %></div></div>
+    <div class="productprice">
+      <div class="pull-right">
+      <% if current_user %>
+        <%= link_to "Add to Cart", new_user_order_path(current_user), class: "btn btn-default"%>
+      <% else %>
+        <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
+      <% end %>
+      </div>
+      <div class="pricetext"><%= product.price %></div>
+    </div>
 
 </div>
 <% end%>
