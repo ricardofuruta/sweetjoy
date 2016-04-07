@@ -5,11 +5,16 @@ class BakersController < ApplicationController
   # GET /bakers
   # GET /bakers.json
   def index
-    @bakers = Baker.all
+    @bakers = Baker.all.reject{|baker| baker.products == [] }
      # Let's DYNAMICALLY build the markers for the view.
-     @markers = Gmaps4rails.build_markers(@bakers) do |baker, marker|
-       marker.lat baker.latitude
-       marker.lng baker.longitude
+    if params[:autocomplete_search]
+      @bakers = Baker.near(params[:autocomplete_search], 50)
+       @bakers = @bakers.reject{|baker| baker.products == [] }
+    end
+
+    @markers = Gmaps4rails.build_markers(@bakers) do |baker, marker|
+      marker.lat baker.latitude
+      marker.lng baker.longitude
     end
   end
 
