@@ -1,5 +1,5 @@
 
-<h2 class="text-center bakers_title">Your own personal baker is just next to you!</h2>
+<h4 class="text-center">Your own personal baker is just next to you!</h4>
 
 <div class='container text-center' id="map" style="width: 70%; height: 300px;"></div>
 
@@ -12,7 +12,7 @@
       <div class="col-xs-12 col-sm-4">
 
         <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path baker.products.first.photo %>');">
-          <a class="card-link" href="bakers/<%= baker.id %>"></a>
+          <a class="card-link" href="<%= baker.id %>"></a>
 
           <div class="card-category"> <%= image_tag baker.photo, class: "avatar-large" %> <%= baker.firstname %> <%= baker.lastname %>
           </div>

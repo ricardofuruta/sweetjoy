@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="content">
-    <p><h3>Discover sweet creations around you...</h3></p>
+    <p><h3 style="text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.17)";>Discover sweet creations around you...</h3></p>
     <!-- Search form -->
     <form action="bakers" class="text-center">
       <input type="text" id='autocomplete-search' name='autocomplete_search' class="navbar-wagon-search-input" placeholder="Enter a full address">
@@ -47,15 +47,41 @@
 </div>
 </div>
 
+<div class="blue-background">
+<div class="wrapper padded_bakers">
+  <div class="container">
+
+    <div class="row">
+    <h4 class="text-center">Top bakers</h4>
+     <% @bakers.each do |baker| %>
+
+      <div class="col-xs-12 col-sm-4">
+
+        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path baker.products.first.photo %>');">
+          <a class="card-link" href="bakers/<%= baker.id %>"></a>
+
+          <div class="card-category"> <%= image_tag baker.photo, class: "avatar-large" %> <%= baker.firstname %> <%= baker.lastname %>
+          </div>
+          <div class="card-description">
+          <h2><%= baker.products.first.name %></h2>
+          </div>
+        </div>
+      </div>
 
 
 
+    <% end %>
+    </div>
+  </div>
+</div>
+</div>
 
+<!--
 <div class="blue-background">
 
   <div class="container">
     <div class="row">
-      <h4 class="panel text-center">Top picks</h4>
+      <h4 class="text-center">Top picks</h4>
 
 
 
@@ -83,7 +109,7 @@
     </div>
   </div>
 </div>
-</div>
+</div> -->
 
 
 <div class="cardhow">
@@ -104,9 +130,9 @@
 
 
       <div class="cardhow">
-        <%image_tag "wedding.jpg" %>
+
         <p><i>I think baking is a labour of love, passed down from generation to generation.</i></p>
-        <p>Meet <%=link_to "Joicy", bakers_path %> from Curitiba, Brazil</p>
+        <p>Meet <%=link_to "Joicy", baker_path(id="1") %> from Curitiba, Brazil</p>
       </div>
     </div>
   </div>
