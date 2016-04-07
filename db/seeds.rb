@@ -12,7 +12,7 @@ baker1 = Baker.create([
  { firstname: 'Joicy',
    lastname: 'Alves',
    description: 'Chef Patisserie, winner of the 2014 prize of best candy maker of Curitiba',
-   address: 'Rue de la Collégiale 27, Bruxelles',
+   address: 'Paris, france',
    photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_scale,h_300,w_300/v1459806781/IMG_3854_krmace.jpg')
    }])
 # baker2 = Baker.create([

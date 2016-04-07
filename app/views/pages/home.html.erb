@@ -2,8 +2,8 @@
   <div class="content">
     <p><h3>Discover sweet creations around you...</h3></p>
     <!-- Search form -->
-    <form action="bakers" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Enter a full address">
+    <form action="bakers" class="text-center">
+      <input type="text" id='autocomplete-search' name='autocomplete_search' class="navbar-wagon-search-input" placeholder="Enter a full address">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
@@ -113,32 +113,39 @@
 </div>
 </div>
 
-<script type="text/javascript">
-  function initializeAutocomplete(id) {
-    var element = document.getElementById(id);
-    if (element) {
-      var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
-      google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+<% content_for :after_js do %>
+
+  <script type="text/javascript">
+    function initializeAutocomplete(id) {
+      var element = document.getElementById(id);
+      console.log(element)
+      if (element) {
+        var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
+        google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+      }
     }
-  }
 
-  function onPlaceChanged() {
-    var place = this.getPlace();
+    function onPlaceChanged() {
+      var place = this.getPlace();
 
-  // console.log(place);  // Uncomment this line to view the full object returned by Google API.
+      // console.log(place);  // Uncomment this line to view the full object returned by Google API.
 
-  for (var i in place.address_components) {
-    var component = place.address_components[i];
-    for (var j in component.types) {  // Some types are ["country", "political"]
-      var type_element = document.getElementById(component.types[j]);
-    if (type_element) {
-      type_element.value = component.long_name;
+      for (var i in place.address_components) {
+        var component = place.address_components[i];
+        for (var j in component.types) {  // Some types are ["country", "political"]
+          var type_element = document.getElementById(component.types[j]);
+          if (type_element) {
+            type_element.value = component.long_name;
+          }
+        }
+      }
     }
-  }
-}
-}
 
-google.maps.event.addDomListener(window, 'load', function() {
-  initializeAutocomplete('user_input_autocomplete_address');
-});
-</script>
+    google.maps.event.addDomListener(window, 'load', function() {
+
+    console.log('works')
+      initializeAutocomplete('autocomplete-search');
+    });
+  </script>
+
+<% end %>
