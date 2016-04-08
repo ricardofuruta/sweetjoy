@@ -25,17 +25,12 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    if @order.save
+      redirect_to @order, notice: 'Order was successfully created.'
+    else
+     render :new
     end
-  end
+ end
 
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
@@ -71,4 +66,4 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:user_id, :delivery_address, :delivery_date)
     end
-end
+  end

@@ -53,7 +53,7 @@
     <div class="productprice">
       <div class="pull-right">
       <% if current_user %>
-        <%= link_to "Add to Cart", new_user_order_path(current_user), class: "btn btn-default"%>
+        <%= link_to "Order", product_path(product), class: "btn btn-default"%>
       <% else %>
         <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
       <% end %>
