@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container text-center">
+  <div class="col-md-5 col-sm-12">
+
+<!-- Place the address and the date with datepicker here -->
+<%= render 'form'%>
+
+  </div>
+
   <div class="col-md-7 col-sm-12 text-left">
     <ul>
       <li class="row list-inline columnCaptions">
@@ -25,14 +32,14 @@
 
 </div>
 
-    <!-- The popover content -->
+<!-- The popover content -->
 
-    <div id="popover" style="display: none">
-      <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-      <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-    </div>
+<div id="popover" style="display: none">
+  <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+  <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+</div>
 
-<p>
+<!-- <p>
   <strong>User:</strong>
   <%= @order.user %>
 </p>
@@ -48,6 +55,6 @@
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Back', orders_path %> -->
 
 
