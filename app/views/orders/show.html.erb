@@ -1,5 +1,37 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container text-center">
+  <div class="col-md-7 col-sm-12 text-left">
+    <ul>
+      <li class="row list-inline columnCaptions">
+        <span>QTY</span>
+        <span>ITEM</span>
+        <span>Price</span>
+      </li>
+      <li class="row">
+        <span class="quantity">1</span>
+        <span class="itemName">Birthday Cake</span>
+        <span class="popbtn"><a class="arrow"></a></span>
+        <span class="price">$49.95</span>
+      </li>
+
+      <li class="row totals">
+        <span class="itemName">Total:</span>
+        <span class="price">$1694.43</span>
+        <span class="order"> <a class="text-center">ORDER</a></span>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+    <!-- The popover content -->
+
+    <div id="popover" style="display: none">
+      <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+      <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+    </div>
+
 <p>
   <strong>User:</strong>
   <%= @order.user %>
@@ -17,3 +49,5 @@
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
+
+

@@ -17,7 +17,7 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
-
+gem 'money-rails'
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'

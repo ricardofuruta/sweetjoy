@@ -26,7 +26,16 @@
 </p>
 
 
-<div class="media"><a href="#" class="btn btn-danger btn-sm" role="button">BUY</a></div>
+<!-- <div class="media"><a href="#" class="btn btn-danger btn-sm" role="button">BUY</a></div> -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-add-order-details">Add to Cart</button>
+
+<div class="modal fade bs-add-order-details" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body"> <%= render 'order_lines/form', product: @product, order_line:OrderLine.new %> </div>
+    </div>
+  </div>
+</div>
 
 <div class="media-section">
 <%= link_to 'Edit', edit_product_path(@product) %> |
