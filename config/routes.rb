@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'review/create'
+
+  get 'review/update'
+
+  get 'review/destroy'
+
   root to: 'pages#home'
 
   devise_for :users
@@ -6,9 +12,9 @@ Rails.application.routes.draw do
   resources :products do
     resources :order_lines
   end
-  resources :bakers
-
-
+  resources :bakers do
+    resources :reviews
+  end
 
   get 'checkout'    => 'orders#checkout'
 
