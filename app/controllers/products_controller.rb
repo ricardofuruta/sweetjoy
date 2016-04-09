@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   # GET /products
   # GET /products.json
+
   def index
     @products = Product.all
   end
