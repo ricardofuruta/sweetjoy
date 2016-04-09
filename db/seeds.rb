@@ -68,6 +68,7 @@ baker3 = Baker.create([
 
    }])
 
+
 baker4 = Baker.create([
 
  { firstname: 'Gordon',
@@ -82,9 +83,13 @@ baker4 = Baker.create([
 
    }])
 
+
+
+
 products = Product.create([{name:'Kit Kat Cake', description: 'Cake made with Kit Kat, M&Ms, brigadeiro and chocolate', price: 100.00, baker: baker1.first, photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_crop,h_600,w_600,x_311/v1459806782/Sweet_Joy_077_web_bq9acr.jpg')},
 
   {name:'Chocolate Cake', description: 'Cake with chocolate topping, with chocolate dought and filled with brigadeiro', price: 80.00, baker: baker1.first, photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_crop,h_600,w_600/v1459806781/Sweet_Joy_100_web_1_tjz95m.jpg')},
+
 
   {name:'Colored Cake', description: 'White Chocolate topping, with vanilla dought and filled Dulce de Leche.', price: 70.00, baker: baker2.first, photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_crop,h_600,w_600/v1459806786/bolo_colorido_t66ldf.jpg')},
 
@@ -120,4 +125,5 @@ products = Product.create([{name:'Kit Kat Cake', description: 'Cake made with Ki
 # products = Product.create([{name:'Kit Kat Cake', description: 'Cake made with Kit Kat, M&Ms, brigadeiro and chocolate', price: 100.00, baker: baker1.first, photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_crop,h_600,w_600,x_311/v1459806782/Sweet_Joy_077_web_bq9acr.jpg')},
 #   {name:'Chocolate Cake', description: 'Cake with chocolate topping, with chocolate dought and filled with brigadeiro', price: 80.00, baker: baker.first, photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_crop,h_600,w_600/v1459806781/Sweet_Joy_100_web_1_tjz95m.jpg')},
 #   {name:'Colored Cake', description: 'White Chocolate topping, with vanilla dought and filled Dulce de Leche.', price: 70.00, baker: baker3.first, photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_crop,h_600,w_600/v1459806786/bolo_colorido_t66ldf.jpg')}])
+
 

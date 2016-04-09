@@ -23,6 +23,7 @@ class BakersController < ApplicationController
   # GET /bakers/1
   # GET /bakers/1.json
   def show
+    @review = Review.new
   end
 
   # GET /bakers/new
