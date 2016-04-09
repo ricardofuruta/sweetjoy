@@ -4,6 +4,8 @@ class BakersController < ApplicationController
 
   # GET /bakers
   # GET /bakers.json
+  #
+
   def index
     @bakers = Baker.all.reject{|baker| baker.products == [] }
      # Let's DYNAMICALLY build the markers for the view.
