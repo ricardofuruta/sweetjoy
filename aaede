@@ -1,0 +1,52 @@
+=> [[32m#<Baker:0x00561797cc6d20[0m
+  id: [1;34m1[0m,
+  firstname: [31m[1;31m"[0m[31mJoicy[1;31m"[0m[31m[0m,
+  lastname: [31m[1;31m"[0m[31mAlves[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mChef Patisserie, winner of the 2014 prize of best candy maker of Curitiba[1;31m"[0m[31m[0m,
+  address: [31m[1;31m"[0m[31mParis, france[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mSat[0m, [1;34m09[0m [1;34;4mApr[0m [1;34m2016[0m [1;34m19[0m:[1;34m04[0m:[1;34m05[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mSat[0m, [1;34m09[0m [1;34;4mApr[0m [1;34m2016[0m [1;34m19[0m:[1;34m04[0m:[1;34m05[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  photo: [31m[1;31m"[0m[31mimage/upload/v1460228646/bkhidarfdyiin0u1i9wb.jpg[1;31m"[0m[31m[0m,
+  latitude: [1;35m48.856614[0m,
+  longitude: [1;35m2.3522219[0m,
+  averagerate: [1;36mnil[0m[32m>[0m,
+ [32m#<Baker:0x00561797cc3d50[0m
+  id: [1;34m2[0m,
+  firstname: [31m[1;31m"[0m[31mRicardo[1;31m"[0m[31m[0m,
+  lastname: [31m[1;31m"[0m[31mFuruta[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mI lived for two years in Paris where I mastered the techniques of cake patisserie.[1;31m"[0m[31m[0m,
+  address: [31m[1;31m"[0m[31mRue des Teinturiers 19, Bruxelles[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mSat[0m, [1;34m09[0m [1;34;4mApr[0m [1;34m2016[0m [1;34m19[0m:[1;34m04[0m:[1;34m06[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mSat[0m, [1;34m09[0m [1;34;4mApr[0m [1;34m2016[0m [1;34m19[0m:[1;34m04[0m:[1;34m06[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  photo: [31m[1;31m"[0m[31mimage/upload/v1460228647/t1f86smclvmc5rnce1z7.jpg[1;31m"[0m[31m[0m,
+  latitude: [1;35m50.8463407[0m,
+  longitude: [1;35m4.3486052[0m,
+  averagerate: [1;36mnil[0m[32m>[0m,
+ [32m#<Baker:0x00561797cc3c10[0m
+  id: [1;34m3[0m,
+  firstname: [31m[1;31m"[0m[31mJean[1;31m"[0m[31m[0m,
+  lastname: [31m[1;31m"[0m[31mOliver[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mJean has a truth passion for patisserie since he was a child. He started baking for his frinds and family and the orders never stop growing since then.[1;31m"[0m[31m[0m,
+  address: [31m[1;31m"[0m[31mRue Botanique 59, Brussels[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mSat[0m, [1;34m09[0m [1;34;4mApr[0m [1;34m2016[0m [1;34m19[0m:[1;34m04[0m:[1;34m08[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mSat[0m, [1;34m09[0m [1;34;4mApr[0m [1;34m2016[0m [1;34m19[0m:[1;34m04[0m:[1;34m08[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  photo: [31m[1;31m"[0m[31mimage/upload/v1460228648/z4t17ahw3uuaviw3ci0u.jpg[1;31m"[0m[31m[0m,
+  latitude: [1;35m50.8554962[0m,
+  longitude: [1;35m4.3647241[0m,
+  averagerate: [1;36mnil[0m[32m>[0m,
+ [32m#<Baker:0x00561797cc3aa8[0m
+  id: [1;34m4[0m,
+  firstname: [31m[1;31m"[0m[31mGordon[1;31m"[0m[31m[0m,
+  lastname: [31m[1;31m"[0m[31mRamsey[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mGordon James Ramsay, OBE is a Scottish-born British chef and restaurateur. His restaurants have been awarded 16 Michelin stars in total and currently hold 9.[1;31m"[0m[31m[0m,
+  address: [31m[1;31m"[0m[31m Grand Place 15, Bruxelles[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mSat[0m, [1;34m09[0m [1;34;4mApr[0m [1;34m2016[0m [1;34m19[0m:[1;34m04[0m:[1;34m09[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mSat[0m, [1;34m09[0m [1;34;4mApr[0m [1;34m2016[0m [1;34m19[0m:[1;34m04[0m:[1;34m09[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  photo: [31m[1;31m"[0m[31mimage/upload/v1460228649/xxmw9bofad0518aeat3n.jpg[1;31m"[0m[31m[0m,
+  latitude: [1;35m50.8462733[0m,
+  longitude: [1;35m4.3530798[0m,
+  averagerate: [1;36mnil[0m[32m>[0m]

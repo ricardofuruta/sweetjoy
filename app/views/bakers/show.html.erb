@@ -2,7 +2,7 @@
   <div class="media-section media-aside text-center"> -->
     <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
 
-<div class="row">
+<div class="container">
   <div class="col-sm-offset-3 col-lg-6 col-sm-6">
     <div class="bakercard hovercard">
       <div class="bakercardheader">
@@ -25,6 +25,14 @@
         <p>
           <strong>Address:</strong>
           <%= @baker.address %>
+        </p>
+
+
+        <p>
+          <strong>Average Rate:</strong>
+
+          <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
+          <%= @baker.averagerate %>
         </p>
 
         <div class="bottom">
@@ -51,33 +59,40 @@
 </div>
 
 
-  <div class="bottom">
-                    <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a class="btn btn-danger btn-sm" rel="publisher"
-                       href="https://plus.google.com/+ahmshahnuralam">
-                        <i class="fa fa-google-plus"></i>
-                    </a>
-                    <a class="btn btn-primary btn-sm" rel="publisher"
-                       href="https://plus.google.com/shahnuralam">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                </div>
-
 <div class="container text-center">
   <h4>Reviews:</h4>
-  <% if @baker.reviews.blank? %>
-    <h4>Be the first to leave a review for <%= @baker.firstname %></h4>
+  <!-- Iterating to check if the user has a order to this baker -->
+  <% has_order = false %>
+  <% @baker.products.each do |product| %>
+    <% product.order_lines.each do |order_line| %>
+      <% has_order = true  if order_line.order.user == current_user %>
+    <%end%>
+  <%end%>
+  <!-- If the user has a order to this baker he can add a review otherwise just see the reviews -->
+  <% if has_order %>
+    <% if @baker.reviews.blank? %>
+      <h4>Be the first to leave a review for <%= @baker.firstname %></h4>
+    <% else %>
+      <% @baker.reviews.each do |review| %>
+        <p><%= image_tag 'nophoto.png', class: 'avatar-large'%></p>
+        <p><%=review.content%></p>
+        <div class="star-ratings-sprite"><span style="width:<%= (review.rate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
+      <% end %>
+    <% end %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-add-order-details">Add a new review</button>
   <% else %>
-    <% @baker.reviews.each do |review| %>
-      <p><%= image_tag 'nophoto.png', class: 'avatar-large'%></p>
-      <p><%=review.content%></p>
-      <p><%=review.rate%></p>
+    <% if @baker.reviews.blank? %>
+      <h5><%= @baker.firstname %> doesn't have reviews yet</h5>
+    <% else %>
+      <% @baker.reviews.each do |review| %>
+          <p><%= image_tag 'nophoto.png', class: 'avatar-large'%></p>
+          <p><%=review.content%></p>
+          <div class="star-ratings-sprite"><span style="width:<%= (review.rate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
+      <% end %>
     <% end %>
   <% end %>
-  <h4>Add a review</h4>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-add-order-details">Add a new review</button>
+
+
 
   <div class="modal fade bs-add-order-details" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-lg">
@@ -126,6 +141,7 @@
     </div>
   </div>
   </div>
+
 
 
 <!--

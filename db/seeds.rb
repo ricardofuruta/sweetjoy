@@ -46,7 +46,7 @@ baker2 = Baker.create([
 
    lastname: 'Furuta',
 
-   description: 'I lived for two years in Paris where I mastered the techniques of cake patisserie.',
+   description: 'I give up a carreer in software development to follow my real passion, making amazing cakes',
 
    address: 'Rue des Teinturiers 19, Bruxelles',
 
@@ -79,7 +79,7 @@ baker4 = Baker.create([
 
    address: ' Grand Place 15, Bruxelles',
 
-   photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_scale,h_300,w_300/v1460206506/0_Frameries_-_Chocolatier_-_P%C3%A2tisserie_Godefroid__2_xijxra.jpg')
+   photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_scale,h_300,w_300/v1460207175/gordonramsey_t1fsmz.jpg')
 
    }])
 
