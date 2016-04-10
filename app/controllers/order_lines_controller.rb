@@ -8,12 +8,14 @@ class OrderLinesController < ApplicationController
 
   def create
     @user = current_user
+    @product = Product.find(params[:product_id])
     if @user.orders.any? && @user.orders.last.is_open?
       @order = current_user.orders.last
     else
       @order = Order.create(user_id:current_user.id)
     end
     @order_line = @order.order_lines.build(order_line_params)
+    @order_line.product = @product
     if @order_line.save
       redirect_to @order, notice: 'Product was successfully added in your cart.'
     else

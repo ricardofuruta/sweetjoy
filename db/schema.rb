@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409094945) do
+ActiveRecord::Schema.define(version: 20160410172642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160409094945) do
     t.string   "photo"
     t.float    "latitude"
     t.float    "longitude"
+    t.float    "averagerate"
   end
 
   create_table "order_lines", force: :cascade do |t|
@@ -70,9 +71,11 @@ ActiveRecord::Schema.define(version: 20160409094945) do
     t.integer  "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "reviews", ["baker_id"], name: "index_reviews_on_baker_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -97,4 +100,5 @@ ActiveRecord::Schema.define(version: 20160409094945) do
   add_foreign_key "orders", "users"
   add_foreign_key "products", "bakers"
   add_foreign_key "reviews", "bakers"
+  add_foreign_key "reviews", "users"
 end

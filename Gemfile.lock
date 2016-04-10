@@ -231,7 +231,7 @@ DEPENDENCIES
   rails-assets-underscore!
   rails_12factor
   redis
-  sass-rails
+  sass-rails (~> 5.0.0)
   simple_form
   spring
   uglifier

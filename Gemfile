@@ -18,7 +18,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'money-rails'
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0.0'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'bootstrap-sass'
