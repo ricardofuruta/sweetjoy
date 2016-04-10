@@ -4,8 +4,11 @@ class CreateOrders < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.string :delivery_address
       t.date :delivery_date
+      t.integer :order_line_id
+      t.integer :buyer_id
 
       t.timestamps null: false
     end
+    add_index :orders, [:order_line_id, :buyer_id], unique: true
   end
 end

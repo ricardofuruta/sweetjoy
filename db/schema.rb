@@ -45,11 +45,14 @@ ActiveRecord::Schema.define(version: 20160410172642) do
     t.integer  "user_id"
     t.string   "delivery_address"
     t.date     "delivery_date"
+    t.integer  "order_line_id"
+    t.integer  "buyer_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.string   "state",            default: "OPEN"
   end
 
+  add_index "orders", ["order_line_id", "buyer_id"], name: "index_orders_on_order_line_id_and_buyer_id", unique: true, using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "products", force: :cascade do |t|

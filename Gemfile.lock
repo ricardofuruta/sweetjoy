@@ -51,6 +51,8 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    braintree (2.33.1)
+      builder (>= 2.0.0)
     builder (3.2.2)
     byebug (8.2.2)
     carrierwave (0.11.0)
@@ -148,6 +150,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.6)
       sprockets-rails
+    rails-assets-bootstrap-datepicker (1.6.0)
+      rails-assets-jquery (>= 1.7.1)
+    rails-assets-jquery (2.2.3)
     rails-assets-underscore (1.8.3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -211,6 +216,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  braintree (~> 2.33.1)
   carrierwave
   cloudinary
   coffee-rails
@@ -228,6 +234,7 @@ DEPENDENCIES
   puma
   quiet_assets
   rails (= 4.2.6)
+  rails-assets-bootstrap-datepicker!
   rails-assets-underscore!
   rails_12factor
   redis

@@ -1,9 +1,9 @@
 <div class="container">
-        <div class="row centered-form">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-2">
+        <div class="centered-form">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3>Create your profile</h3>
+              <h4>Create your profile</h4>
             </div>
             <div class="panel-body">
             <form role="form">
@@ -15,28 +15,28 @@
                 <div class="form-inputs">
                     <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
-                  <%= f.input :firstname %>
+                  <%= f.input :firstname, :placeholder => "First name" %>
                   </div>
                   </div>
                       <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
-                  <%= f.input :lastname %>
+                  <%= f.input :lastname, :placeholder => "Last name" %>
                   </div>
                   </div>
                   <div class="col-xs-12">
                     <div class="form-group">
-                  <%= f.input :description %>
+                  <%= f.input :description, :placeholder => "Tell us about yourself..." %>
                   </div>
                   </div>
                     <div class="col-xs-12">
                     <div class="form-group">
-                  <%= f.input :address %>
+                  <%= f.input :address, :placeholder => "Address"%>
                   </div>
                   </div>
 
                     <div class="col-xs-12">
-                    <div class="form-group">
-                  <%= f.input :photo %>
+                    <div class="form-group" >
+                  <%= f.input :photo%>
                   <%= f.input :photo_cache, as: :hidden %>
                   </div>
                   </div>
