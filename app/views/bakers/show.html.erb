@@ -39,9 +39,7 @@
           href="https://plus.google.com/shahnuralam">
             <i class="fa fa-facebook"></i>
           </a>
-          <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
-            <i class="fa fa-behance"></i>
-        </a>
+
         </div>
         <%= link_to 'Edit', edit_baker_path(@baker) %> |
         <%= link_to 'Back', bakers_path %>
@@ -50,7 +48,7 @@
   </div>
 </div>
 
-
+<!--
   <div class="bottom">
                     <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
                         <i class="fa fa-twitter"></i>
@@ -63,12 +61,12 @@
                        href="https://plus.google.com/shahnuralam">
                         <i class="fa fa-facebook"></i>
                     </a>
-                </div>
+                </div> -->
 
-<div class="container text-center">
-  <h4>Reviews:</h4>
+<div class="container">
+  <h4>Reviews</h4>
   <% if @baker.reviews.blank? %>
-    <h4>Be the first to leave a review for <%= @baker.firstname %></h4>
+    <p>Be the first to leave a review for <%= @baker.firstname %></p>
   <% else %>
     <% @baker.reviews.each do |review| %>
       <p><%= image_tag 'nophoto.png', class: 'avatar-large'%></p>
@@ -76,7 +74,7 @@
       <p><%=review.rate%></p>
     <% end %>
   <% end %>
-  <h4>Add a review</h4>
+<!--   <p><strong>Add a review</strong></p> -->
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-add-order-details">Add a new review</button>
 
   <div class="modal fade bs-add-order-details" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -90,6 +88,9 @@
 
 
 </div>
+
+
+
 
 <div class="container">
   <div class="padded row">
