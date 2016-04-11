@@ -8,15 +8,15 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   devise_for :users
-  resources :orders
+  resources :orders do
+    post 'checkout'
+  end
   resources :products do
     resources :order_lines
   end
   resources :bakers do
     resources :reviews
   end
-
-  get 'checkout'    => 'orders#checkout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
