@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def create
+
     @baker = Baker.find(params[:baker_id])
     @user = current_user
     @review = @baker.reviews.build(review_params)
@@ -7,18 +8,8 @@ class ReviewsController < ApplicationController
 
     if @review.save
       # adding the average baker rate
-      if @baker.averagerate.blank?
-        @baker.averagerate = @review.rate
-        @baker.save
-      else
-        sum = 0
-        @baker.reviews.each do |review|
-          sum += review.rate
-          p sum
-        end
-        @baker.averagerate = (sum / @baker.reviews.size)
-        @baker.save
-      end
+      @baker.new_averagerate(@review.rate)
+
       redirect_to baker_path(@baker)
     else
       render 'reviews/_form'

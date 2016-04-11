@@ -41,6 +41,7 @@
       $('input:radio').change(
       function(){
           var userRating = this.value;
+          $('#review_rate').val(userRating);
           alert(userRating);
       });
   });
