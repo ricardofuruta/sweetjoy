@@ -29,12 +29,12 @@
 
         <span class="itemName"><%=order_line.product.name%></span>
         <span class="popbtn"><a class="arrow"></a></span>
-        <span class="price"></span>
+        <span class="price"><%=order_line.product.price%></span>
 
           <%end%>
         </li>
 
-      <% total =@product.price %>
+     <% total = 100 %>
 
 
       <li class="row totals">
