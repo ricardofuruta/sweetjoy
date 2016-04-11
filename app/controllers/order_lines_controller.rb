@@ -34,7 +34,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def order_line_params
-    params.require(:order_line).permit(:order_id, :product_id, :special_instruction, :quantity)
+    params.require(:order_line).permit(:order_id,:special_instruction, :quantity)
   end
 
 end
