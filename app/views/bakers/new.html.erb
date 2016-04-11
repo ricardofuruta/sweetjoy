@@ -5,6 +5,26 @@
 <%= render 'form' %>
 </div>
 
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h2 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Open your Online Patesserie
+        </a>
+      </h2>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+
+ <%= render 'form' %>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+
 <section id="fees" class="section outer bg-blue text-white text-center bt-xs-1">
         <div class="body-max-width-980">
             <h1 class="h1 mb-xs-8">Affordable, transparent, and secure</h1>
@@ -70,9 +90,7 @@
             <div class="col-group">
                 <div class="col-centered col-xs-12 col-sm-10 col-lg-7">
                     <div class="flag">
-                        <div class="encryption-img flag-img">
-                            <img src="/images/sell/hand-key.svg" width="100">
-                        </div>
+
                         <div class="flag-body">
                             <p class="text-left">
 
@@ -98,11 +116,11 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
+      <h2 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Frequently Asked Questions
+          Frequently asked questions
         </a>
-      </h4>
+      </h2>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
@@ -116,6 +134,7 @@ Listing fees are billed for $0.20 USD, so if your bank's currency is not USD, th
 </ul>
       </div>
     </div>
+  </div>
   </div>
 
 
