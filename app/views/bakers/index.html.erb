@@ -28,14 +28,17 @@
 
 
 <% content_for(:after_js) do %>
-<%= javascript_tag do %>
-$(document).on('ready', function() {
-handler = Gmaps.build('Google');
-handler.buildMap({ internal: { id: 'map' } }, function(){
-markers = handler.addMarkers(<%= raw @markers.to_json %>);
-handler.bounds.extendWith(markers);
-handler.fitMapToBounds();
-});
-})
-<% end %>
+  <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
+
+  <%= javascript_tag do %>
+  $(document).on('ready', function() {
+
+  handler = Gmaps.build('Google');
+  handler.buildMap({ internal: { id: 'map' } }, function(){
+  markers = handler.addMarkers(<%= raw @markers.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  });
+  })
+  <% end %>
 <% end %>

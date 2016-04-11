@@ -77,42 +77,6 @@
 </div>
 </div>
 
-<!--
-<div class="blue-background">
-
-  <div class="container">
-    <div class="row">
-      <h4 class="text-center">Top picks</h4>
-
-
-
-
-      <div class="col-xs-12 col-sm-4">
-
-
-       <div class="card" id="pick-a">
-        <a class="card-link" href="bakers/1"></a>
-      </div>
-    </div>
-
-
-    <div class="col-xs-12 col-sm-4">
-
-      <div class="card" id="pick-b">
-        <a class="card-link" href="bakers/2"></a>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" id="pick-c">
-        <a class="card-link" href="bakers/3"></a>
-      </div>
-    </div>
-  </div>
-</div>
-</div> -->
-
-
 <div class="cardhow">
  <div class="text-center padded">
    <h4>Meet Joicy</h4>
@@ -141,7 +105,7 @@
 </div>
 
 <% content_for :after_js do %>
-
+  <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
   <script type="text/javascript">
     function initializeAutocomplete(id) {
       var element = document.getElementById(id);
