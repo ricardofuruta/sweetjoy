@@ -31,7 +31,7 @@
         <p>
           <strong>Average Rate:</strong>
 
-          <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
+          <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i if @baker.averagerate %>%" class="star-ratings-sprite-rating"></span></div>
           <%= @baker.averagerate %>
         </p>
 
