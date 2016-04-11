@@ -32,7 +32,9 @@
 <div class="modal fade bs-add-order-details" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-body"> <%= render 'order_lines/form', product: @product, order_line:OrderLine.new %> </div>
+      <div class="modal-body">
+        <%= render 'order_lines/form', product: @product, order_line:OrderLine.new %>
+      </div>
     </div>
   </div>
 </div>
