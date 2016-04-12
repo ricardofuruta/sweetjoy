@@ -1,3 +1,4 @@
+
 class BakersController < ApplicationController
   before_action :set_baker, only: [:show, :edit, :update, :destroy, :profile]
   skip_before_action :authenticate_user!, only: [:index, :show, :new]
