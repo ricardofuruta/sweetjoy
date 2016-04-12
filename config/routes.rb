@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   end
   resources :bakers do
     resources :reviews
+    get 'profile', to: 'bakers#profile', as: :profile
+    patch 'order/:id' , to: 'bakers#close_order', as: :close_order
   end
-  get 'bakers/:id/profile', to: 'bakers#profile', as: :baker_profile
 
 
 
