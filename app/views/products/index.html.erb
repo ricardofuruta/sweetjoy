@@ -44,15 +44,15 @@
 <div class="container">
 <div class="card-columns">
 <% @products.each do |product| %>
-<div class="col-md-2 column productbox">
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 column productbox">
 
    <%= image_tag product.photo, class: "img-responsive" %>
 
     <div class="producttitle"><%= product.name %></div>
-    <div class="producttitle" id="grey">by <%= product.baker.firstname %></div>
+    <div class="producttitle2" id="grey">by <%= product.baker.firstname %></div>
 
     <div class="productdescription"><%= product.description %></div>
-    <div class="productprice">
+    <div class="productprice" style="display: flex; align-items: center">
       <div class="pull-right">
       <% if current_user %>
         <%= link_to "Order", product_path(product), class: "btn btn-default"%>

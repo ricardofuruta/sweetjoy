@@ -3,6 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+.products-index {
+    background-color: #EAEAEA;
+    color: #333;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+
 #grey {
   color: grey;
 }
@@ -20,7 +29,16 @@
 
 .producttitle {
     font-weight:bold;
-  padding:5px 0 5px 0;
+    font-size: 18px;
+  padding-bottom:0;
+  padding-top:15px;
+}
+
+.producttitle2 {
+
+    font-size: 14px;
+  padding-bottom:0;
+  padding-top:5px;
 }
 
 .productprice {
