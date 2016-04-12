@@ -1,0 +1,62 @@
+<div class="media">
+  <div class="media-body">
+    <div class="media-section">
+      <h4>Your Profile</h4>
+        <%= image_tag @baker.photo, class: "round" %>
+    </div>
+    <div class="media-section">
+      <h4>Description</h4>
+       <p>
+          <strong>About me:</strong>
+          <%= @baker.description %>
+        </p>
+
+        <p>
+          <strong>Address:</strong>
+          <%= @baker.address %>
+        </p>
+        <p>
+          <strong>Average Rate:</strong>
+          <% if @baker.averagerate.blank?%>
+            <p> <%=@baker.firstname%> doesn't have rates yet. </p>
+          <% else %>
+          <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i if @baker.averagerate %>%" class="star-ratings-sprite-rating"></span></div>
+          <%= '%.2f' %  @baker.averagerate %>
+          <% end %>
+        </p>
+
+    </div>
+  </div>
+  <div class="media-aside">
+    <div class="media-section">
+      <h4>Your Orders</h4>
+        <% if @baker.has_order?%>
+
+    </div>
+  </div>
+</div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Your Reviews
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+       <% if @baker.reviews.blank? %>
+        <h5><%= @baker.firstname %> doesn't have reviews yet</h5>
+       <% else %>
+        <% @baker.reviews.each do |review| %>
+          <p><%= image_tag 'nophoto.png', class: 'avatar-large'%></p>
+          <p><%=review.content%></p>
+          <div class="star-ratings-sprite"><span style="width:<%= (review.rate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
+        <% end %>
+       <% end %>
+     </div>
+   </div>
+ </div>
+</div>

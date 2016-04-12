@@ -25,7 +25,7 @@
                   </div>
                   <div class="col-xs-12">
                     <div class="form-group">
-                  <%= f.input :description, :placeholder => "Tell us about yourself..." %>
+                  <%= f.input :description,:as => :text, :placeholder => "Tell us about yourself...", :input_html => { 'rows' => 5 } %>
                   </div>
                   </div>
                     <div class="col-xs-12">

@@ -1,10 +1,11 @@
 class BakersController < ApplicationController
-  before_action :set_baker, only: [:show, :edit, :update, :destroy]
+  before_action :set_baker, only: [:show, :edit, :update, :destroy, :profile]
   skip_before_action :authenticate_user!, only: [:index, :show, :new]
 
   # GET /bakers
   # GET /bakers.json
-  #
+  def profile
+  end
 
   def index
     @bakers = Baker.all.reject{|baker| baker.products == [] }
