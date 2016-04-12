@@ -55,16 +55,13 @@
     <div class="row">
     <h4 class="text-center">Top bakers</h4>
      <% @bakers.sample(3).each do |baker| %>
-
       <div class="col-xs-12 col-sm-4">
-
         <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path baker.products.first.photo%>');">
           <a class="card-link" href="bakers/<%= baker.id %>"></a>
-
           <div class="card-category"> <%= image_tag baker.photo, class: "avatar-large" %> <%= baker.firstname %> <%= baker.lastname %>
           </div>
           <div class="card-description">
-          <h2><%= baker.products.first.name %></h2>
+            <h2><%= baker.products.first.name %></h2>
           </div>
         </div>
       </div>
