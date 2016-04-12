@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410172642) do
+ActiveRecord::Schema.define(version: 20160411163254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,10 @@ ActiveRecord::Schema.define(version: 20160410172642) do
     t.float    "latitude"
     t.float    "longitude"
     t.float    "averagerate"
+    t.integer  "user_id"
   end
+
+  add_index "bakers", ["user_id"], name: "index_bakers_on_user_id", using: :btree
 
   create_table "order_lines", force: :cascade do |t|
     t.integer  "order_id"
@@ -98,6 +101,7 @@ ActiveRecord::Schema.define(version: 20160410172642) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bakers", "users"
   add_foreign_key "order_lines", "orders"
   add_foreign_key "order_lines", "products"
   add_foreign_key "orders", "users"

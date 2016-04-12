@@ -31,7 +31,7 @@
         <p>
           <strong>Average Rate:</strong>
           <% if @baker.averagerate.blank?%>
-            <h5><%@baker.firstname%> doesn't have rates yet. </h5>
+            <h5><%= @baker.firstname%> doesn't have rates yet. </h5>
           <% else %>
           <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i if @baker.averagerate %>%" class="star-ratings-sprite-rating"></span></div>
           <%= '%.2f' %  @baker.averagerate %>

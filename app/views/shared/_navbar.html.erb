@@ -8,30 +8,44 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Search form -->
+<<<<<<< HEAD
    <!--  <form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
     </form> -->
+=======
+
+>>>>>>> a179f02c078ad93db5bf9289278b971db95d404d
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
 
 
+
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% if current_user.baker.blank? %>
+            <% user_image = 'nophoto.png' %>
+          <% else %>
+            <% user_image = current_user.baker.photo %>
+          <% end %>
+
+          <%= image_tag user_image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% if current_user.baker %>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
+              <%= link_to baker_profile_path(current_user.baker) do %>
+                <i class="fa fa-user"></i> <%= t ".profile", default: "Baker Profile" %>
               <% end %>
             </li>
+            <% end %>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to root_path do %>
                 <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
               <% end %>
             </li>
