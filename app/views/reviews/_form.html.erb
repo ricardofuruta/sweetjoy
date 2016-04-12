@@ -17,7 +17,7 @@
     <li><h5>Click to give a rate</h5></li>
   </ul>
 
-  <%= f.input :rate,:as => :hidden, input_html: { value: 5 } %>
+  <%= f.input :rate,:as => :hidden %>
   <%= f.input :content, required: true, label: false, :as => :text, placeholder: 'Describe your experience', :input_html => { 'rows' => 5 }%>
 </div>
 
@@ -42,7 +42,6 @@
       function(){
           var userRating = this.value;
           $('#review_rate').val(userRating);
-          alert(userRating);
       });
   });
   <% end %>

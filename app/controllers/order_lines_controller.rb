@@ -17,7 +17,7 @@ class OrderLinesController < ApplicationController
     @order_line = @order.order_lines.build(order_line_params)
     @order_line.product = @product
     if @order_line.save
-      redirect_to @order, notice: 'Product was successfully added in your cart.'
+      redirect_to baker_path(@product.baker_id), notice: 'Product was successfully added in your cart.'
     else
      render :new
     end

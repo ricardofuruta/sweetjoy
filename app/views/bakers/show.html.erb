@@ -122,7 +122,7 @@
      <div class="productprice">
       <div class="pull-right">
         <% if current_user %>
-          <%= render 'order_lines/form', product: product, order_line:OrderLine.new %>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Add to Cart</button>
         <% else %>
           <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
         <% end %>
@@ -131,6 +131,13 @@
     </div>
 
     </div>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+         <%= render 'order_lines/form', product: product, order_line:OrderLine.new %>
+       </div>
+     </div>
+   </div>
   <% end%>
   </div>
 </div>
