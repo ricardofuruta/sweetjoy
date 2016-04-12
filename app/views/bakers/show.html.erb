@@ -112,27 +112,27 @@
 <div class="container">
   <div class="row">
     <h4 class="text-center">See <%=@baker.firstname%>'s collection</h4>
-<% @baker.products.each do |product| %>
-<div class="col-md-2 column productbox">
+    <% @baker.products.each do |product| %>
+    <div class="col-md-2 column productbox">
 
-   <%= image_tag product.photo, class: "img-responsive" %>
+      <%= image_tag product.photo, class: "img-responsive" %>
 
-    <div class="producttitle"><%= product.name %></div>
-    <div class="productdescription"><%= product.description %></div>
-    <div class="productprice">
+     <div class="producttitle"><%= product.name %></div>
+     <div class="productdescription"><%= product.description %></div>
+     <div class="productprice">
       <div class="pull-right">
-      <% if current_user %>
-        <%= link_to "Order", product_path(product), class: "btn btn-default"%>
-      <% else %>
-        <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
-      <% end %>
+        <% if current_user %>
+          <%= render 'order_lines/form', product: product, order_line:OrderLine.new %>
+        <% else %>
+          <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
+        <% end %>
       </div>
       <div class="pricetext">R$<%= product.price %></div>
     </div>
 
-</div>
-<% end%>
-</div>
+    </div>
+  <% end%>
+  </div>
 </div>
 
 
