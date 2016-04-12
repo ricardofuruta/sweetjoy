@@ -12,7 +12,7 @@ class OrderLinesController < ApplicationController
     if @user.orders.any? && @user.orders.last.is_open?
       @order = current_user.orders.last
     else
-      @order = Order.create(user_id:current_user.id)
+      @order = Order.create(user_id:current_user.id, baker_id: @product.baker_id)
     end
     @order_line = @order.order_lines.build(order_line_params)
     @order_line.product = @product

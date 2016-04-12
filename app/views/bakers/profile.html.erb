@@ -30,8 +30,32 @@
   <div class="media-aside">
     <div class="media-section">
       <h4>Your Orders</h4>
-        <% if @baker.has_order?%>
-
+        <% if @baker.orders %>
+          <% @baker.orders.each do |order| %>
+            <div>
+              <hr class="style-four">
+              <h2> Order n. <%= order.id %>: </h2>
+              <% order.order_lines.each do |order_line| %>
+                <div>
+                  <h6> - Product: <%= order_line.product.name %></h6>
+                  <h6> - Special Instructions: <%= order_line.special_instruction %></h6>
+                </div>
+                <hr class="style-one">
+              <% end %>
+              <h5>Address: <%= order.delivery_address %></h5>
+              <h5>Date: <%= order.delivery_date %></h5>
+              <h5>Status: <%= order.state %>
+                <% if order.state == 'CLOSED' %>
+                <% else %>
+                  <%= link_to "Change to Delivered", baker_close_order_path(@baker, order), method: 'patch', class: "btn btn-default" %>
+                <% end %>
+              </h5>
+              <hr class="style-four">
+            </div>
+          <% end %>
+        <% else %>
+          <p>You don't have any order yet.</p>
+        <% end %>
     </div>
   </div>
 </div>

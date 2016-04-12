@@ -1,11 +1,12 @@
 
 class BakersController < ApplicationController
-  before_action :set_baker, only: [:show, :edit, :update, :destroy, :profile]
+  before_action :set_baker, only: [:show, :edit, :update, :destroy, :close_order]
   skip_before_action :authenticate_user!, only: [:index, :show, :new]
 
   # GET /bakers
   # GET /bakers.json
   def profile
+    @baker = Baker.find(params[:baker_id])
   end
 
   def index
@@ -55,6 +56,14 @@ class BakersController < ApplicationController
 
   # PATCH/PUT /bakers/1
   # PATCH/PUT /bakers/1.json
+  #
+  def close_order
+    @order = Order.find(params[:id])
+    @order.state = "CLOSED"
+    @order.save
+    redirect_to baker_profile_path(@baker)
+  end
+
   def update
     respond_to do |format|
       if @baker.update(baker_params)

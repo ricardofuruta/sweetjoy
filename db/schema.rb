@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411163254) do
+ActiveRecord::Schema.define(version: 20160412083843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,10 @@ ActiveRecord::Schema.define(version: 20160411163254) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.string   "state",            default: "OPEN"
+    t.integer  "baker_id"
   end
 
+  add_index "orders", ["baker_id"], name: "index_orders_on_baker_id", using: :btree
   add_index "orders", ["order_line_id", "buyer_id"], name: "index_orders_on_order_line_id_and_buyer_id", unique: true, using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
@@ -104,6 +106,7 @@ ActiveRecord::Schema.define(version: 20160411163254) do
   add_foreign_key "bakers", "users"
   add_foreign_key "order_lines", "orders"
   add_foreign_key "order_lines", "products"
+  add_foreign_key "orders", "bakers"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "bakers"
   add_foreign_key "reviews", "bakers"

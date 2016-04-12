@@ -2,6 +2,7 @@ class Baker < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
   has_many :products
   has_many :reviews
+  has_many :orders
   has_one :user
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -12,7 +13,6 @@ class Baker < ActiveRecord::Base
         self.averagerate =rating
         self.save
       else
-        p "hello"
         sum = 0
         self.reviews.each do |review|
           sum += review.rate
@@ -25,7 +25,7 @@ class Baker < ActiveRecord::Base
 
   def has_order?
     self.products.each do |product|
-      return true if product.order_lines
+      return true if product.order_lines.nil?
     end
     return false
   end
