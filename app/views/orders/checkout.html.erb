@@ -1,0 +1,33 @@
+Checkout
+
+
+<p id="notice"><%= notice %></p>
+
+<div class="container text-center">
+  <div class="col-md-5 col-sm-12">
+
+    <!-- Place the address and the date with datepicker here -->
+    <%= render 'form'%>
+
+
+
+
+  </div>
+
+ --> --> -->
+<!-- </div> -->
+
+<!-- The popover content -->
+
+<div id="popover" style="display: none">
+  <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+  <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+</div>
+
+
+
+<%= simple_form_for @order do |f| %>
+  <div id="payment-form">
+    <%= f.button :submit, class: "btn" %>
+  </div>
+<% end %>

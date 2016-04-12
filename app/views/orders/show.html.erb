@@ -10,7 +10,9 @@
     <label class="product-removal">Remove</label>
     <label class="product-line-price">Total</label>
   </div>
+  <% sum = Money.new(0, 'EUR') %>
   <% @order.order_lines.each do |order_line| %>
+  <% sum += order_line.product.price %>
     <div class="product">
       <div class="product-image">
         <%= image_tag order_line.product.photo %>
@@ -28,44 +30,24 @@
           Remove
         </button>
       </div>
-      <div class="product-line-price">25.98</div>
+      <div class="product-line-price"><%= order_line.product.price %></div>
     </div>
   <% end %>
 
-  <div class="product">
-    <div class="product-image">
-      <img src="http://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png">
-    </div>
-    <div class="product-details">
-      <div class="product-title">Nutro™ Adult Lamb and Rice Dog Food</div>
-      <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>
-    </div>
-    <div class="product-price">45.99</div>
-    <div class="product-quantity">
-      <input type="number" value="1" min="1">
-    </div>
-    <div class="product-removal">
-      <button class="remove-product">
-        Remove
-      </button>
-    </div>
-    <div class="product-line-price">45.99</div>
-  </div>
-
   <div class="totals">
     <div class="totals-item">
-      <label>Subtotal</label>
-      <div class="totals-value" id="cart-subtotal">71.97</div>
+      <label>Total</label>
+      <div class="totals-value" id="cart-subtotal"><%= sum %></div>
     </div>
-    <div class="totals-item">
+    <div class="totals-item hidden">
       <label>Tax (5%)</label>
       <div class="totals-value" id="cart-tax">3.60</div>
     </div>
-    <div class="totals-item">
+    <div class="totals-item hidden">
       <label>Shipping</label>
       <div class="totals-value" id="cart-shipping">15.00</div>
     </div>
-    <div class="totals-item totals-item-total">
+    <div class="totals-item totals-item-total hidden">
       <label>Grand Total</label>
       <div class="totals-value" id="cart-total">90.57</div>
     </div>
@@ -74,42 +56,6 @@
       <button class="checkout">Checkout</button>
 
 </div>
-
-
-
-
-
-<p id="notice"><%= notice %></p>
-
-<div class="container text-center">
-  <div class="col-md-5 col-sm-12">
-
-    <!-- Place the address and the date with datepicker here -->
-    <%= render 'form'%>
-
-
-
-
-  </div>
-
- --> --> -->
-<!-- </div> -->
-
-<!-- The popover content -->
-
-<div id="popover" style="display: none">
-  <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-  <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-</div>
-
-
-
-<%= simple_form_for @order do |f| %>
-  <div id="payment-form">
-    <%= f.button :submit, class: "btn" %>
-  </div>
-<% end %>
-
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -138,6 +84,8 @@ function recalculateCart()
   $('.product').each(function () {
     subtotal += parseFloat($(this).children('.product-line-price').text());
   });
+  /* Update totals display */
+  /* Update totals display */
 
   /* Calculate totals */
   var tax = subtotal * taxRate;
