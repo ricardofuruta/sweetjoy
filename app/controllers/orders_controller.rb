@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :payment]
   before_action :authenticate_user!
+
+  before_action :payment, only:[:update]
   # GET /orders
   # GET /orders.json
   def index
@@ -25,7 +27,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = current_user.order.new(order_params)
     if @order.save
       redirect_to @order, notice: 'Order was successfully created.'
     else
@@ -37,7 +39,7 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1.json
   def update
     respond_to do |format|
-      if @order.update(order_params)
+      if @order.update(status: "PAID")
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -58,6 +60,22 @@ class OrdersController < ApplicationController
   end
 
   private
+    def payment
+      @result = Braintree::Transaction.sale(
+        amount: @order.amount,
+        payment_method_nonce: params[:payment_method_nonce])
+
+      if @result.success?
+        current_user.purchase_cart_movies!
+        redirect_to order_path(@order),method: "patch", notice: "Congraulations! Your transaction has been successfully!"
+      else
+        flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
+        gon.client_token = generate_client_token
+        redirect_to order_path(@order)
+      end
+    end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
@@ -65,6 +83,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :delivery_address, :delivery_date)
+      params.require(:order).permit(:delivery_address, :delivery_date)
     end
   end

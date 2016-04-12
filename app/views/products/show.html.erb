@@ -1,4 +1,5 @@
 <div class='container'>
+<div class='bakercard'>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -22,10 +23,12 @@
 </p>
 
 <p>
-<%= image_tag @product.photo.url(:product_profile) %>
+<%= image_tag @product.photo.url, id: "zoom_01" %>
 </p>
 
-
+<script>
+    $('#zoom_01').elevateZoom();
+</script>
 <!-- <div class="media"><a href="#" class="btn btn-danger btn-sm" role="button">BUY</a></div> -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-add-order-details">Add to Cart</button>
 
@@ -44,3 +47,5 @@
 <%= link_to 'Back', products_path %>
 </div>
 </div>
+</div>
+
