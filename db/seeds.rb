@@ -27,8 +27,8 @@ baker1 = Baker.create([
 
    }])
 
-user1.baker_id = 1
-user1.save
+baker1.user_id = 1
+baker1.save
 
 baker2 = Baker.create([
 
@@ -44,8 +44,8 @@ baker2 = Baker.create([
 
    }])
 
-user2.baker_id = 1
-user2.save
+baker2.user_id = 2
+baker2.save
 
 baker3 = Baker.create([
 
@@ -61,8 +61,8 @@ baker3 = Baker.create([
 
    }])
 
-user3.baker_id = 2
-user3.save
+baker3.user_id = 3
+baker3.save
 
 baker4 = Baker.create([
 
@@ -78,8 +78,8 @@ baker4 = Baker.create([
 
    }])
 
-user4.baker_id = 4
-user4.save
+baker4.user_id = 4
+baker4.save
 
 products = Product.create([{name:'Kit Kat Cake', description: 'Cake made with Kit Kat, M&Ms, brigadeiro and chocolate', price: 100.00, baker: baker1.first, photo: open('http://res.cloudinary.com/ricardofuruta/image/upload/c_crop,h_600,w_600,x_311/v1459806782/Sweet_Joy_077_web_bq9acr.jpg')},
 
