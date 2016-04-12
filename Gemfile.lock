@@ -80,6 +80,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    elevatezoom-rails (1.0.0)
     erubis (2.7.0)
     execjs (2.6.0)
     figaro (1.1.1)
@@ -221,6 +222,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails
   devise
+  elevatezoom-rails
   figaro
   font-awesome-sass
   geocoder

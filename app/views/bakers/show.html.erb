@@ -111,90 +111,37 @@
 
 
 
-
-<div class="container">
-  <div class="padded row">
-    <h4 class="text-center">Take a peak;)</h4>
-
-
-    <div class="col-xs-12 col-sm-4">
-
-
-     <div class="card" id="pick-a">
-      <a class="card-link" href="/products"></a>
-    </div>
-  </div>
-
-
-  <div class="col-xs-12 col-sm-4">
-
-
-      <div class="card" id="pick-b">
-      <a class="card-link" href="/products"></a>
-      </div>
-      </div>
-
-
-
-
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" id="pick-c">
-      <a class="card-link" href="/products"></a>
-      </div>
-
-
-
-    </div>
-  </div>
-  </div>
-
-
-
-
-
-
-<!--
-
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
   <div class="row">
-    <div class="col-lg-3 col-sm-6">
+    <h4 class="text-center">See <%=@baker.firstname%>'s collection</h4>
+<% @baker.products.each do |product| %>
+<div class="col-md-2 column productbox">
 
-            <div class="bakercard hovercard">
-                <div class="bakercardheader">
+   <%= image_tag product.photo, class: "img-responsive" %>
 
-                </div>
-                <div class="avatar">
-                    <%= image_tag @baker.photo %>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a target="_blank" href="http://scripteden.com/"><%= @baker.firstname %> <%= @baker.lastname %></a>
-                    </div>
-                    <div class="desc">About me:</div>
-                    <div class="desc"><%= @baker.description %></div>
-                    <div class="desc"><%= @baker.address %></div>
-                </div>
-                <div class="bottom">
-                    <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a class="btn btn-danger btn-sm" rel="publisher"
-                       href="https://plus.google.com/+ahmshahnuralam">
-                        <i class="fa fa-google-plus"></i>
-                    </a>
-                    <a class="btn btn-primary btn-sm" rel="publisher"
-                       href="https://plus.google.com/shahnuralam">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
-                        <i class="fa fa-behance"></i>
-                    </a>
-                </div>
-            </div>
+    <div class="producttitle"><%= product.name %></div>
+    <div class="productdescription"><%= product.description %></div>
+    <div class="productprice">
+      <div class="pull-right">
+      <% if current_user %>
+        <%= link_to "Order", product_path(product), class: "btn btn-default"%>
+      <% else %>
+        <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
+      <% end %>
+      </div>
+      <div class="pricetext">R$<%= product.price %></div>
+    </div>
 
-        </div>
-        </div>
-        </div>
+</div>
+<% end%>
+</div>
+</div>
 
-      -->
+
+
+
+
+
+
+
+

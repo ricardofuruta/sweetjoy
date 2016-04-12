@@ -42,13 +42,15 @@
 </div>
 
 <div class="container">
+<div class="card-columns">
 <% @products.each do |product| %>
 <div class="col-md-2 column productbox">
 
    <%= image_tag product.photo, class: "img-responsive" %>
 
-    <div class="producttitle"><%= product.baker.firstname %></div>
     <div class="producttitle"><%= product.name %></div>
+    <div class="producttitle" id="grey">by <%= product.baker.firstname %></div>
+
     <div class="productdescription"><%= product.description %></div>
     <div class="productprice">
       <div class="pull-right">
@@ -58,11 +60,12 @@
         <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
       <% end %>
       </div>
-      <div class="pricetext"><%= product.price %></div>
+      <div class="pricetext">R$<%= product.price %></div>
     </div>
 
 </div>
 <% end%>
+</div>
 </div>
 
 

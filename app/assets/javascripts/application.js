@@ -6,3 +6,4 @@
 //= require_tree .
 
 //= require bootstrap-datepicker
+//= require jquery.elevatezoom

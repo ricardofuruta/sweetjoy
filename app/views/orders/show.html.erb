@@ -30,16 +30,14 @@
         <span class="itemName"><%=order_line.product.name%></span>
         <span class="popbtn"><a class="arrow"></a></span>
         <span class="price"><%=order_line.product.price%></span>
-
+        <span class="price"><%=order_line.amount %></span>
           <%end%>
         </li>
-
-     <% total = 100 %>
 
 
       <li class="row totals">
         <span class="itemName">Total:</span>
-        <span class="price"><%= total %></span>
+        <span class="price"><%= @order.amount %></span>
         <span class="order"> <a class="text-center">ORDER</a></span>
       </li>
     </ul>
@@ -57,8 +55,9 @@
 
 
 <%= simple_form_for @order do |f| %>
-  <div id="payment-form"></div>
-  <%= f.button :submit, class: "btn" %>
+  <div id="payment-form">
+    <%= f.button :submit, class: "btn" %>
+  </div>
 <% end %>
 
 

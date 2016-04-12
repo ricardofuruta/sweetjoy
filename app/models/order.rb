@@ -6,4 +6,10 @@ class Order < ActiveRecord::Base
   def is_open?
     state = 'OPEN'
   end
+
+  def amount
+    total =0
+    self.order_lines.each {|ol| total += ol.amount.to_i}
+    total
+  end
 end
