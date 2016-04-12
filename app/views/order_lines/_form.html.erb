@@ -1,12 +1,16 @@
-<%= simple_form_for [product, order_line] do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :special_instruction %>
-    <%= f.input :quantity %>
-  </div>
+    <%= simple_form_for [product, order_line] do |f| %>
+      <%= f.error_notification %>
+      <h4>Add an item</h4>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+      <div class="form-inputs">
+        <h5><%= f.input :special_instruction, label: 'Special Instructions' %></h5>
+        <h5><%= f.input :quantity %></h5>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+
+    <% end %>
+

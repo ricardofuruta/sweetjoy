@@ -42,9 +42,6 @@ group :production do
 end
 
 
-gem 'braintree', '~> 2.33.1'
-
-
 source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
 end

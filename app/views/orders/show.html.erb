@@ -1,104 +1,145 @@
-<p id="notice"><%= notice %></p>
+<h1>Shopping Cart</h1>
 
-<div class="container text-center">
-  <div class="col-md-5 col-sm-12">
+<div class="shopping-cart">
 
-    <!-- Place the address and the date with datepicker here -->
-    <%= render 'form'%>
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+  <% sum = Money.new(0, 'EUR') %>
+  <% @order.order_lines.each do |order_line| %>
+  <% sum += order_line.product.price %>
+    <div class="product">
+      <div class="product-image">
+        <%= image_tag order_line.product.photo %>
+      </div>
+      <div class="product-details">
+        <div class="product-title"><%= order_line.product.name %></div>
+        <p class="product-description"><%= order_line.product.description%></p>
+      </div>
+      <div class="product-price"><%= order_line.product.price%></div>
+      <div class="product-quantity">
+        <input type="number" value="1" min="1">
+      </div>
+      <div class="product-removal">
+        <button class="remove-product">
+          Remove
+        </button>
+      </div>
+      <div class="product-line-price"><%= order_line.product.price %></div>
+    </div>
+  <% end %>
 
-
-
-
+  <div class="totals">
+    <div class="totals-item">
+      <label>Total</label>
+      <div class="totals-value" id="cart-subtotal"><%= sum %></div>
+    </div>
+    <div class="totals-item hidden">
+      <label>Tax (5%)</label>
+      <div class="totals-value" id="cart-tax">3.60</div>
+    </div>
+    <div class="totals-item hidden">
+      <label>Shipping</label>
+      <div class="totals-value" id="cart-shipping">15.00</div>
+    </div>
+    <div class="totals-item totals-item-total hidden">
+      <label>Grand Total</label>
+      <div class="totals-value" id="cart-total">90.57</div>
+    </div>
   </div>
 
-  <div class="col-md-7 col-sm-12 text-left">
-    <ul>
-      <li class="row list-inline columnCaptions">
-        <span>QTY</span>
-        <span>ITEM</span>
-        <span>Price</span>
-      </li>
-
-   <!--    <%= @product.inspect %> -->
-
-
-      <li class="row">
-          <%@order.order_lines.each do |order_line|%>
-
-        <span class="quantity"><%=order_line.quantity%></span>
-
-        <span class="itemName"><%=order_line.product.name%></span>
-        <span class="popbtn"><a class="arrow"></a></span>
-        <span class="price"><%=order_line.product.price%></span>
-        <span class="price"><%=order_line.amount %></span>
-          <%end%>
-        </li>
-
-
-      <li class="row totals">
-        <span class="itemName">Total:</span>
-        <span class="price"><%= @order.amount %></span>
-        <span class="order"> <a class="text-center">ORDER</a></span>
-      </li>
-    </ul>
-  </div>
+      <button class="checkout">Checkout</button>
 
 </div>
 
-<!-- The popover content -->
-
-<div id="popover" style="display: none">
-  <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-  <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-</div>
-
-
-
-<%= simple_form_for @order do |f| %>
-  <div id="payment-form">
-    <%= f.button :submit, class: "btn" %>
-  </div>
-<% end %>
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+/* Set rates + misc */
+var taxRate = 0.05;
+var shippingRate = 15.00;
+var fadeTime = 300;
 
 
-<% content_for :after_js do %>
-  <script type="text/javascript">
-    $(function() {
-      var pop = $('.popbtn');
-      var row = $('.row:not(:first):not(:last)');
+/* Assign actions */
+$('.product-quantity input').change( function() {
+  updateQuantity(this);
+});
+
+$('.product-removal button').click( function() {
+  removeItem(this);
+});
 
 
-      pop.popover({
-        trigger: 'manual',
-        html: true,
-        container: 'body',
-        placement: 'bottom',
-        animation: false,
-        content: function() {
-          return $('#popover').html();
-        }
-      });
+/* Recalculate cart */
+function recalculateCart()
+{
+  var subtotal = 0;
+
+  /* Sum up row totals */
+  $('.product').each(function () {
+    subtotal += parseFloat($(this).children('.product-line-price').text());
+  });
+  /* Update totals display */
+  /* Update totals display */
+
+  /* Calculate totals */
+  var tax = subtotal * taxRate;
+  var shipping = (subtotal > 0 ? shippingRate : 0);
+  var total = subtotal + tax + shipping;
+
+  /* Update totals display */
+  $('.totals-value').fadeOut(fadeTime, function() {
+    $('#cart-subtotal').html(subtotal.toFixed(2));
+    $('#cart-tax').html(tax.toFixed(2));
+    $('#cart-shipping').html(shipping.toFixed(2));
+    $('#cart-total').html(total.toFixed(2));
+    if(total == 0){
+      $('.checkout').fadeOut(fadeTime);
+    }else{
+      $('.checkout').fadeIn(fadeTime);
+    }
+    $('.totals-value').fadeIn(fadeTime);
+  });
+}
 
 
-      pop.on('click', function(e) {
-        pop.popover('toggle');
-        pop.not(this).popover('hide');
-      });
+/* Update quantity */
+function updateQuantity(quantityInput)
+{
+  /* Calculate line price */
+  var productRow = $(quantityInput).parent().parent();
+  var price = parseFloat(productRow.children('.product-price').text());
+  var quantity = $(quantityInput).val();
+  var linePrice = price * quantity;
 
-      $(window).on('resize', function() {
-        pop.popover('hide');
-      });
-
-      row.on('touchend', function(e) {
-        $(this).find('.popbtn').popover('toggle');
-        row.not(this).find('.popbtn').popover('hide');
-        return false;
-      });
-
+  /* Update line price display and recalc cart totals */
+  productRow.children('.product-line-price').each(function () {
+    $(this).fadeOut(fadeTime, function() {
+      $(this).text(linePrice.toFixed(2));
+      recalculateCart();
+      $(this).fadeIn(fadeTime);
     });
+  });
+}
 
-  </script>
 
+/* Remove item from cart */
+function removeItem(removeButton)
+{
+  /* Remove row from DOM and recalc cart total */
+  var productRow = $(removeButton).parent().parent();
+  productRow.slideUp(fadeTime, function() {
+    productRow.remove();
+    recalculateCart();
+  });
+}
+  <% end %>
+<% end %>
 
   <!-- <p>
     <strong>User:</strong>
@@ -120,7 +161,7 @@
 
 
 
-  <script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
+  <!-- <script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
   <script>
     // In a production-ready integration, you will need to
     // generate a client token on your server
@@ -129,6 +170,7 @@
     braintree.setup(clientToken, "dropin", {
       container: "payment-form"
     });
-  </script>
+  </script> -->
 
-<% end %>
+
+

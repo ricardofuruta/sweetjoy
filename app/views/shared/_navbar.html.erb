@@ -55,7 +55,11 @@
     <%= link_to t(".top_call_to_action", default: "Become a Baker"), new_baker_path, class: "btn btn-default" %>
 
 
-    <%= link_to t(".top_call_to_action", default: ""), "/orders", class: "glyphicon glyphicon-shopping-cart" %>
+    <% if user_signed_in? %>
+      <% if current_user.orders.present? %>
+        <%= link_to t(".top_call_to_action", default: ""), order_path(current_user.orders.last), class: "glyphicon glyphicon-shopping-cart" %>
+      <% end %>
+    <% end %>
 
   </div>
 
