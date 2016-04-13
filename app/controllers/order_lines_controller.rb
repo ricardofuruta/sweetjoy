@@ -27,9 +27,14 @@ class OrderLinesController < ApplicationController
 def destroy
 end
 
+def update
+  @order_line.update(order_line_params)
+  redirect_to order_path(@order_line.order)
+end
+
 private
     # Use callbacks to share common setup or constraints between actions.
-  def set_order
+  def set_order_line
     @order_line = OrderLine.find(params[:id])
   end
 
