@@ -9,6 +9,9 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
+  def checkout
+    @order = Order.find(params[:order_id])
+  end
   # GET /orders/1
   # GET /orders/1.json
   def show
@@ -60,21 +63,6 @@ class OrdersController < ApplicationController
   end
 
   private
-    def payment
-      @result = Braintree::Transaction.sale(
-        amount: @order.amount,
-        payment_method_nonce: params[:payment_method_nonce])
-
-      if @result.success?
-        current_user.purchase_cart_movies!
-        redirect_to order_path(@order),method: "patch", notice: "Congraulations! Your transaction has been successfully!"
-      else
-        flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
-        gon.client_token = generate_client_token
-        redirect_to order_path(@order)
-      end
-    end
-
 
     # Use callbacks to share common setup or constraints between actions.
     def set_order

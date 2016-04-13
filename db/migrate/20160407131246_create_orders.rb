@@ -6,6 +6,8 @@ class CreateOrders < ActiveRecord::Migration
       t.date :delivery_date
       t.integer :order_line_id
       t.integer :buyer_id
+      t.monetize :amount, currency: { present: false }
+      t.json :payment
 
       t.timestamps null: false
     end
