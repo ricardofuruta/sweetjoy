@@ -3,7 +3,7 @@ class Baker < ActiveRecord::Base
   has_many :products
   has_many :reviews
   has_many :orders
-  has_one :user
+  belongs_to :user
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
