@@ -9,9 +9,9 @@ class Order < ActiveRecord::Base
     state = 'OPEN'
   end
 
-  def amount
+  def total
     total =0
-    self.order_lines.each {|ol| total += ol.amount.to_i}
-    total
+    self.order_lines.each {|ol| total += ol.quantity * ol.product.price.to_i }
+    total * 100
   end
 end

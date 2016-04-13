@@ -15,12 +15,13 @@ class OrderLinesController < ApplicationController
     else
       @order = Order.create(user_id:current_user.id, baker_id: @product.baker_id)
     end
-    @order_line = @order.order_lines.build(order_line_params)
+    @order_line = @order.order_lines.build
     @order_line.product = @product
+    @order_line.quantity = 1
     if @order_line.save
-      redirect_to baker_path(@product.baker_id), notice: 'Product was successfully added in your cart.'
+      redirect_to order_path(@order_line.order), notice: 'Product was successfully added in your cart.'
     else
-     render :new
+      redirect_to product_path(@product)
     end
   end
 
