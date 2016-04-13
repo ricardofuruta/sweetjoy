@@ -10,9 +10,9 @@
     <label class="product-removal">Remove</label>
     <label class="product-line-price">Total</label>
   </div>
-  <% sum = Money.new(0, 'EUR') %>
-  <% @order.order_lines.each do |order_line| %>
-  <% sum += order_line.product.price %>
+  <%# sum = Money.new(0, 'EUR') %>
+  <% @order.order_lines.each_with_index do |order_line| %>
+  <%# sum += (order_line.product.price * order_line.quantity) %>
     <div class="product">
       <div class="product-image">
         <%= image_tag order_line.product.photo %>
@@ -21,23 +21,28 @@
         <div class="product-title"><%= order_line.product.name %></div>
         <p class="product-description"><%= order_line.product.description%></p>
       </div>
-      <div class="product-price"><%= order_line.product.price%></div>
+      <div class="product-price"><%= order_line.product.price %></div>
       <div class="product-quantity">
-        <input type="number" value="1" min="1">
+
+        <%= simple_form_for [order_line.product, order_line] do |f|  %>
+          <%=f.input :quantity, collection: (1..10), class: 'qty_changer', prompt: order_line.quantity %>
+        <% end %>
+
+        <!-- <input type="number" value="1" min="1"> -->
       </div>
       <div class="product-removal">
         <button class="remove-product">
           Remove
         </button>
       </div>
-      <div class="product-line-price"><%= order_line.product.price %></div>
+      <div class="product-line-price"><%= order_line.product.price * order_line.quantity %></div>
     </div>
   <% end %>
 
   <div class="totals">
     <div class="totals-item">
       <label>Total</label>
-      <div class="totals-value" id="cart-subtotal"><%= sum %></div>
+      <div class="totals-value" id="cart-subtotal"><%= @order.total %></div>
     </div>
     <div class="totals-item hidden">
       <label>Tax (5%)</label>
@@ -139,6 +144,15 @@ function removeItem(removeButton)
   });
 }
   <% end %>
+
+  <script>
+    $(document).ready(function(){
+      $('.edit_order_line').change(function(){
+        console.log('hello')
+        $(this).submit();
+      })
+    })
+  </script>
 <% end %>
 
   <!-- <p>
