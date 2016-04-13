@@ -3,6 +3,84 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.productcard-container {
+  max-width: 400px;
+  margin: auto;
+  display:block;
+}
+
+.productcard { border: 1px solid rgba(0, 0, 0, 0.18);
+    padding-top: 0;
+  }
+
+
+.productcard {
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    padding-top: 0;
+    margin: 10px 0 20px 0;
+
+    // -webkit-border-radius: 3px;
+    // -moz-border-radius: 3px;
+    // border-radius: 3px;
+    // -webkit-box-shadow: none;
+    // -moz-box-shadow: none;
+    // box-shadow: none;
+    // -webkit-box-sizing: border-box;
+    // -moz-box-sizing: border-box;
+    // box-sizing: border-box;
+}
+
+.productcard-photo {
+  position: relative;
+  width: 100%;
+}
+
+.productcard-price {
+    position: absolute;
+    top: 0;
+    margin: 20px;
+    color: white;
+    margin-left: 0;
+}
+
+
+
+.productcard-name {
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    padding-bottom: 0;
+}
+
+.productcard-description {
+    padding: 11px 20px;
+    font-size: 16px;
+    opacity: .6;
+}
+
+.productcard-author {
+    padding: 0 20px;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: .8;
+}
+
+.cart-button {
+
+      margin: 0;
+    border-radius: 0;
+    width: 100%;
+    margin-top: 20px;
+    text-transform: uppercase;
+    padding: 20px 0;
+    letter-spacing: 4px;
+    font-weight: 600;
+    background-color: #469AE0;
+    color: #333;
+
+}
 
 .products-index {
     background-color: #EAEAEA;
