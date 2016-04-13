@@ -1,9 +1,41 @@
-<!-- <div class='container wrapper-grey'>
-  <div class="media-section media-aside text-center"> -->
-    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
 
+ <div class="profile-header-wrapper">
+      <div class="container profile-header-container text-center">
+        <div class="profile-header-infos">
+          <%= image_tag @baker.photo, class: "round" %>
+          <h1><%= @baker.firstname %> <%= @baker.lastname %></h1>
+
+        <p>
+          <strong>Location:</strong>
+          <%= @baker.address %>
+        </p>
+         <p>
+          <strong>Average Rate:</strong>
+          <% if @baker.averagerate.blank?%>
+            <h5><%= @baker.firstname%> doesn't have rates yet. </h5>
+          <% else %>
+          <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i if @baker.averagerate %>%" class="star-ratings-sprite-rating"></span></div>
+          <%= '%.2f' %  @baker.averagerate %>
+          <% end %>
+        </p>
+        </div>
+        <div class="tabs">
+          <a class="tab active" data-target="#bio">
+            <h3>About me</h3>
+          </a>
+          <a class="tab" data-target="#projects">
+            <h3>Shop</h3>
+          </a>
+          <a class="tab" data-target="#contact">
+            <h3>Reviews</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+
+      <div class="tab-content" id="bio">
 <div class="container list-inline">
-  <div class="col-sm-2 col-lg-6 col-sm-6">
+  <div class="col-sm-12 col-lg-6 col-sm-6">
     <div class="bakercard hovercard">
       <div class="bakercardheader">
         <p id="notice"><%= notice %></p>
@@ -13,7 +45,7 @@
         </h4>
 
         <p>
-          <%= image_tag @baker.photo, class: "round" %>
+          <%= image_tag @baker.photo %>
         </p>
 
         <p>
@@ -37,15 +69,15 @@
         </p>
 
         <div class="bottom">
-          <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+          <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/sweetjoy">
             <i class="fa fa-twitter"></i>
           </a>
           <a class="btn btn-danger btn-sm" rel="publisher"
-          href="https://plus.google.com/+ahmshahnuralam">
+          href="https://plus.google.com/+sweetjoy">
             <i class="fa fa-google-plus"></i>
           </a>
           <a class="btn btn-primary btn-sm" rel="publisher"
-          href="https://plus.google.com/shahnuralam">
+          href="https://plus.google.com/sweetjoy">
             <i class="fa fa-facebook"></i>
           </a>
 
@@ -55,10 +87,50 @@
       </div>
     </div>
   </div>
-<div class="col-sm-2 col-lg-6 col-sm-6">
-    <div class="bakercard hovercard">
-    <div class="bakercardheader">
-        <p id="notice"><%= notice %></p>
+
+  </div>
+
+
+      </div>
+      <div class="tab-content hidden" id="projects">
+       <div class="container">
+  <div class="row">
+    <h4 class="text-center">See <%=@baker.firstname%>'s collection</h4>
+    <% @baker.products.each do |product| %>
+    <div class="col-md-2 column productbox">
+
+      <%= image_tag product.photo, class: "img-responsive" %>
+
+     <div class="producttitle"><%= product.name %></div>
+     <div class="productdescription"><%= product.description %></div>
+     <div class="productprice">
+      <div class="pull-right">
+        <% if current_user %>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Add to Cart</button>
+        <% else %>
+          <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
+        <% end %>
+      </div>
+      <div class="pricetext">R$<%= product.price %></div>
+    </div>
+
+    </div>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+         <%= render 'order_lines/form', product: product, order_line:OrderLine.new %>
+       </div>
+     </div>
+   </div>
+  <% end%>
+  </div>
+</div>
+      </div>
+
+
+      <div class="tab-content hidden" id="contact">
+      <div class="container padded">
+             <p id="notice"><%= notice %></p>
   <h4>Reviews</h4>
   <!-- Iterating to check if the user has a order to this baker -->
   <% has_order = false %>
@@ -98,51 +170,12 @@
       </div>
     </div>
   </div>
-  </div>
-  </div>
-  </div>
-  </div>
-
-
-
-</div>
-
-
-
-<div class="container">
-  <div class="row">
-    <h4 class="text-center">See <%=@baker.firstname%>'s collection</h4>
-    <% @baker.products.each do |product| %>
-    <div class="col-md-2 column productbox">
-
-      <%= image_tag product.photo, class: "img-responsive" %>
-
-     <div class="producttitle"><%= product.name %></div>
-     <div class="productdescription"><%= product.description %></div>
-     <div class="productprice">
-      <div class="pull-right">
-        <% if current_user %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Add to Cart</button>
-        <% else %>
-          <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
-        <% end %>
       </div>
-      <div class="pricetext">R$<%= product.price %></div>
-    </div>
-
-    </div>
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-         <%= render 'order_lines/form', product: product, order_line:OrderLine.new %>
-       </div>
-     </div>
-   </div>
-  <% end%>
-  </div>
-</div>
+      </div>
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="javascript/tabs.js"></script>
 
 
 
