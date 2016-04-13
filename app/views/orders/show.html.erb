@@ -42,7 +42,7 @@
   <div class="totals">
     <div class="totals-item">
       <label>Total</label>
-      <div class="totals-value" id="cart-subtotal"><%= @order.total %></div>
+      <div class="totals-value" id="cart-subtotal"><%= number_with_precision((@order.total / 100), :precision => 2 ) %></div>
     </div>
     <div class="totals-item hidden">
       <label>Tax (5%)</label>
