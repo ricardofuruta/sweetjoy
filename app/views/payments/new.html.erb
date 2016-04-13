@@ -1,4 +1,10 @@
+
+<div class='text-center'>
+
 <h1>Check the details of your order</h1>
+
+<%= render 'orders/form', order: @order %>
+
 <%= form_tag order_payments_path(@order) do %>
   <article>
     <label class="amount">
@@ -16,3 +22,4 @@
     data-currency="EUR"></script>
 
 <% end %>
+</div>
