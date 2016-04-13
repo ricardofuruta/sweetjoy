@@ -1,0 +1,14 @@
+.banner3 {
+  color: white;
+  text-align: center;
+  background-image: url('Sweet Joy 031 web.jpg');
+  background-attachment: fixed;
+  height: calc(100vh - 70px);
+  max: 100%;
+  top-margin: 0px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

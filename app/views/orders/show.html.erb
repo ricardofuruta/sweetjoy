@@ -3,7 +3,7 @@
 </div>
 
 
-<div class="shopping-cart">
+<div class="shopping-cart" style="margin-right: 150px">
 
   <div class="column-labels">
     <label class="product-image">Image</label>
@@ -45,7 +45,7 @@
   <div class="totals">
     <div class="totals-item">
       <label>Total</label>
-      <div class="totals-value" id="cart-subtotal"><%= @order.total %></div>
+      <div class="totals-value" id="cart-subtotal"><strong><%= @order.total %></strong></div>
     </div>
     <div class="totals-item hidden">
       <label>Tax (5%)</label>
@@ -62,7 +62,7 @@
   </div>
 
   <div class="container padded">
-  <%= link_to 'Check Out', new_order_payment_path(@order), class:"checkout" %>
+  <%= link_to 'Check Out', new_order_payment_path(@order), class:"checkout1" %>
   </div>
 
 </div>

@@ -50,8 +50,6 @@ ActiveRecord::Schema.define(version: 20160413094449) do
     t.date     "delivery_date"
     t.integer  "order_line_id"
     t.integer  "buyer_id"
-    t.integer  "amount_cents",     default: 0,      null: false
-    t.json     "payment"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.string   "state",            default: "OPEN"
@@ -68,10 +66,11 @@ ActiveRecord::Schema.define(version: 20160413094449) do
     t.string   "name"
     t.string   "description"
     t.integer  "baker_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "photo"
-    t.integer  "price_cents", default: 0, null: false
+    t.integer  "price_cents",    default: 0,     null: false
+    t.string   "price_currency", default: "EUR", null: false
   end
 
   add_index "products", ["baker_id"], name: "index_products_on_baker_id", using: :btree
