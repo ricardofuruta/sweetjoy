@@ -57,7 +57,7 @@
 
     <% if user_signed_in? %>
       <% if current_user.orders.present? %>
-        <%= link_to t(".top_call_to_action", default: ""), order_path(current_user.orders.last), class: "glyphicon glyphicon-shopping-cart" %>
+        <%= link_to t(".top_call_to_action", default: ""), order_path(current_user.orders.last), class: "glyphicon glyphicon-shopping-cart fa-2x" %>
       <% end %>
     <% end %>
 

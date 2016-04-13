@@ -3,14 +3,13 @@
       <div class="container profile-header-container text-center">
         <div class="profile-header-infos">
           <%= image_tag @baker.photo, class: "round" %>
-          <h1><%= @baker.firstname %> <%= @baker.lastname %></h1>
+          <h4 style="color:wheat;"><%= @baker.firstname %> <%= @baker.lastname %></h4>
 
-        <p>
-          <strong>Location:</strong>
+        <p style="color: white;">
           <%= @baker.address %>
         </p>
-         <p>
-          <strong>Average Rate:</strong>
+         <p style="color: white;">
+       <!--    <strong>Average Rate:</strong> -->
           <% if @baker.averagerate.blank?%>
             <h5><%= @baker.firstname%> doesn't have rates yet. </h5>
           <% else %>
@@ -21,13 +20,13 @@
         </div>
         <div class="tabs">
           <a class="tab active" data-target="#bio">
-            <h3>About me</h3>
+            <h5>About me</h5>
           </a>
           <a class="tab" data-target="#projects">
-            <h3>Shop</h3>
+            <h5>Shop</h5>
           </a>
           <a class="tab" data-target="#contact">
-            <h3>Reviews</h3>
+            <h5>Reviews</h5>
           </a>
         </div>
       </div>
@@ -35,8 +34,8 @@
 
       <div class="tab-content" id="bio">
 <div class="container list-inline">
-  <div class="col-sm-12 col-lg-6 col-sm-6">
-    <div class="bakercard hovercard">
+  <div class="col-sm-12 col-lg-6 col-sm-6 col-md-offset-3">
+    <div class="bakercard hovercard" style="margin: 0 20px 0 20px">
       <div class="bakercardheader">
         <p id="notice"><%= notice %></p>
 
@@ -82,8 +81,7 @@
           </a>
 
         </div>
-        <%= link_to 'Edit', edit_baker_path(@baker) %> |
-        <%= link_to 'Back', bakers_path %>
+
       </div>
     </div>
   </div>
@@ -97,19 +95,19 @@
   <div class="row">
     <h4 class="text-center">See <%=@baker.firstname%>'s collection</h4>
     <% @baker.products.each do |product| %>
-    <div class="col-md-2 column productbox">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 column productbox">
 
       <%= image_tag product.photo, class: "img-responsive" %>
 
      <div class="producttitle"><%= product.name %></div>
      <div class="productdescription"><%= product.description %></div>
      <div class="productprice">
-      <div class="pull-right">
-        <% if current_user %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Add to Cart</button>
-        <% else %>
-          <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
-        <% end %>
+     <div class="pull-right">
+      <% if current_user %>
+        <%= link_to "Order", product_path(product), class: "btn btn-default"%>
+      <% else %>
+        <%= link_to "Log in to Buy", new_user_session_path, class: "btn btn-default"%>
+      <% end %>
       </div>
       <div class="pricetext">R$<%= product.price %></div>
     </div>
@@ -129,8 +127,8 @@
 
 
       <div class="tab-content hidden" id="contact">
-      <div class="container padded">
-             <p id="notice"><%= notice %></p>
+      <div class="container" style="padding-bottom: 50px">
+
   <h4>Reviews</h4>
   <!-- Iterating to check if the user has a order to this baker -->
   <% has_order = false %>
