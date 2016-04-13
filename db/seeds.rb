@@ -8,10 +8,10 @@
 #
 #
 #
-user1 = User.create( email:'baker1@gmail.com', password:"1")
-user2 = User.create( email:'baker2@gmail.com', password:"1" )
-user3 = User.create( email:'baker3@gmail.com', password:"1" )
-user4 = User.create( email:'baker4@gmail.com', password:"1" )
+user1 = User.create( email:'baker1@gmail.com')
+user2 = User.create( email:'baker2@gmail.com')
+user3 = User.create( email:'baker3@gmail.com')
+user4 = User.create( email:'baker4@gmail.com')
 
 baker1 = Baker.create([
 
