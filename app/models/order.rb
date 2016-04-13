@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :baker
   has_many :order_lines
+  monetize :amount_cents
 
 
   def is_open?

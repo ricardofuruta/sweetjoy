@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get 'payments/new'
+
   root to: 'pages#home'
 
   devise_for :users
   resources :orders do
-    post 'checkout'
+    resources :payments, only: [:new, :create]
   end
   resources :products do
     resources :order_lines

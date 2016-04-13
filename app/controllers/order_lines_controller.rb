@@ -1,6 +1,7 @@
 class OrderLinesController < ApplicationController
   before_action :set_order_line, only: [ :update, :destroy]
   before_action :authenticate_user!
+
   def new
     @product = Product.find(params[:product_id])
     @order_line = OrderLine.new

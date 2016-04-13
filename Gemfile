@@ -48,3 +48,4 @@ end
 
 
 gem 'elevatezoom-rails'
+gem 'stripe'
