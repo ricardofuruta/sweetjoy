@@ -5,7 +5,6 @@ class PaymentsController < ApplicationController
   end
 
   def create
-
     @amount = @order.amount_cents
 
     customer = Stripe::Customer.create(

@@ -1,5 +1,8 @@
-<div class="container">
-  <%= simple_form_for(@order) do |f| %>
+<%= simple_form_for(@order) do |f| %>
+  <div class='shopping-form'>
+    <h7>Fill the Orders Details</h7>
+  </div>
+  <div class="container">
     <%= f.error_notification %>
 
     <div class="form-inputs">
@@ -8,12 +11,11 @@
       <%= f.input :delivery_date %>
       <%= f.input :instructions %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
-  <% end %>
-</div>
+  </div>
+  <div class="container padded">
+    <%= f.button :submit, "Check Out", class: "checkout1" %>
+  </div>
+<% end %>
 
 
 
