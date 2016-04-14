@@ -1,6 +1,6 @@
 
 class BakersController < ApplicationController
-  before_action :set_baker, only: [:show, :edit, :update, :destroy, :close_order]
+  before_action :set_baker, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show, :new]
 
   # GET /bakers
@@ -61,7 +61,7 @@ class BakersController < ApplicationController
     @order = Order.find(params[:id])
     @order.state = "CLOSED"
     @order.save
-    redirect_to baker_profile_path(@baker)
+    redirect_to baker_profile_path(@order.baker)
   end
 
   def update
