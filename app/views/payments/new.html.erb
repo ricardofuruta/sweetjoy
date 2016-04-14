@@ -8,7 +8,7 @@
 <%= form_tag order_payments_path(@order) do %>
   <article>
     <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.total) %></span>
+      <span>Amount: $ <%= number_with_precision((@order.total / 100), :precision => 2 ) %></span>
     </label>
   </article>
 
