@@ -14,7 +14,7 @@
             <h5><%= @baker.firstname%> doesn't have rates yet. </h5>
           <% else %>
           <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i if @baker.averagerate %>%" class="star-ratings-sprite-rating"></span></div>
-          <%= '%.2f' %  @baker.averagerate %>
+          <div class="average-rate"><%= '%.2f' %  @baker.averagerate %></div>
           <% end %>
         </p>
         </div>
@@ -150,10 +150,13 @@
       <% @baker.reviews.each do |review| %>
         <p><%= image_tag 'nophoto.png', class: 'avatar-large'%></p>
         <p><%=review.content%></p>
-        <div class="star-ratings-sprite"><span style="width:<%= (review.rate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
+        <div class="star-ratings-sprite" style="margin:0;"><span style="width:<%= (review.rate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
       <% end %>
     <% end %>
+
+    <div class="padded">
     <button type="button padded" class="btn btn-primary" data-toggle="modal" data-target=".bs-add-order-details">Add a new review</button>
+    </div>
   <% else %>
     <% if @baker.reviews.blank? %>
       <h5><%= @baker.firstname %> doesn't have reviews yet</h5>
