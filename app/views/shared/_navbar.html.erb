@@ -52,7 +52,9 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
+    <% if current_user.baker.blank? %>
     <%= link_to t(".top_call_to_action", default: "Become a Baker"), new_baker_path, class: "btn btn-default" %>
+    <% end %>
 
 
     <% if user_signed_in? %>

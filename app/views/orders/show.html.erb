@@ -1,5 +1,5 @@
 <div class="container padded">
-<h7>Your Shopping Cart</h7>
+  <h7>Your Shopping Cart</h7>
 </div>
 
 
@@ -62,12 +62,9 @@
       <div class="totals-value" id="cart-total">90.57</div>
     </div>
   </div>
-
-  <div class="container padded">
-  <%= link_to 'Check Out', new_order_payment_path(@order), class:"checkout1" %>
-  </div>
-
 </div>
+  <%= render 'orders/form', order: @order %>
+
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>

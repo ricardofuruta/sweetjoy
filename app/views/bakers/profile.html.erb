@@ -45,8 +45,7 @@
               <h5>Address: <%= order.delivery_address %></h5>
               <h5>Date: <%= order.delivery_date %></h5>
               <h5>Status: <%= order.state %>
-                <% if order.state == 'CLOSED' %>
-                <% else %>
+                <% if order.state == 'PAID' %>
                   <%= link_to "Change to Delivered", baker_close_order_path(@baker, order), method: 'patch', class: "btn btn-default" %>
                 <% end %>
               </h5>

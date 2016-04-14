@@ -1,25 +1,89 @@
 
-<div class='text-center'>
-
-<h1>Check the details of your order</h1>
-
-<%= render 'orders/form', order: @order %>
-
-<%= form_tag order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: $ <%= number_with_precision((@order.total / 100), :precision => 2 ) %></span>
-    </label>
-  </article>
-
-  <!-- #Commented for the lecture, remove comments.  -->
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Order"
-    data-description="Order number <%= @order.id %>"
-    data-amount="<%= @order.total %>"
-    data-currency="EUR"></script>
-
-<% end %>
+<div class="container text-center checkout-title">
+  <h7>Check the details of your order</h7>
 </div>
+
+
+
+  <div class="media">
+    <div class="media-body">
+      <div class="media-section">
+        <div class='checkout-title'>
+          <h7>Products Details</h7>
+        </div>
+        <div class="shopping-cart" style="margin-right: 150px">
+
+          <div class="column-labels">
+            <label class="product-image">Image</label>
+            <label class="product-details">Product</label>
+            <label class="product-price">Price</label>
+            <label class="product-quantity">Quantity</label>
+            <label class="product-line-price">Total</label>
+          </div>
+          <%# sum = Money.new(0, 'EUR') %>
+          <% @order.order_lines.each_with_index do |order_line| %>
+          <%# sum += (order_line.product.price * order_line.quantity) %>
+          <div class="product">
+            <div class="product-image">
+              <%= image_tag order_line.product.photo %>
+            </div>
+            <div class="product-details">
+              <div class="product-title"><%= order_line.product.name %></div>
+              <p class="product-description"><%= order_line.product.description%></p>
+            </div>
+            <div class="product-price"><%= order_line.product.price %></div>
+            <div class="product-quantity">
+
+              <%=  order_line.quantity %>
+
+              <!-- <input type="number" value="1" min="1"> -->
+            </div>
+            <div class="product-line-price"><%= order_line.product.price * order_line.quantity %></div>
+          </div>
+          <% end %>
+
+          <div class="totals">
+            <div class="totals-item">
+              <label>Total</label>
+
+              <div class="totals-value" id="cart-subtotal"><%= number_with_precision((@order.total / 100), :precision => 2 ) %></div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="media-aside">
+      <div class="media-section">
+      <h7>Delivery Details</h7>
+        <div class='order-details'>
+          <p> <strong>Name:</strong> <%=@order.fullname%> </p>
+          <p> <strong>Delivery Address:</strong> <%=@order.delivery_address%> </p>
+          <p> <strong>Delivery Date:</strong> <%=@order.delivery_date%> </p>
+          <p> <strong>Delivery instructions:</strong> <%=@order.instructions%> </p>
+        </div>
+      </div>
+      <div class="media-section">
+        <%= form_tag order_payments_path(@order) do %>
+        <article>
+          <label class="amount">
+            <h5>Amount: $ <%= number_with_precision((@order.total / 100), :precision => 2 ) %></h5>
+          </label>
+        </article>
+
+        <!-- #Commented for the lecture, remove comments.  -->
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="My Order"
+        data-description="Order number <%= @order.id %>"
+        data-amount="<%= @order.total %>"
+        data-currency="EUR"></script>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
