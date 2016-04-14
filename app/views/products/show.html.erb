@@ -27,8 +27,6 @@
 
 
 
-    <button type="button" class="cart-button" data-method="post" rel="nofollow"><%= link_to 'Add to Cart', order_path %></button>
-
  <!--    <a class="cart-button" rel="nofollow" data-method="post" href="/products/4/orders">Add to Cart</a> -->
 
     <%= button_to 'Add to Cart', product_order_lines_path(@product, OrderLine.new), method: 'post', class:"cart-button" %>

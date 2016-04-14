@@ -1,36 +1,105 @@
-<div class="media">
-  <div class="media-body">
-    <div class="media-section">
-      <h4>Your Profile</h4>
-        <%= image_tag @baker.photo, class: "round" %>
-    </div>
-    <div class="media-section">
-      <h4>Description</h4>
-       <p>
-          <strong>About me:</strong>
-          <%= @baker.description %>
-        </p>
+ <div class="profile-header-wrapper">
+      <div class="container profile-header-container text-center">
+        <div class="profile-header-infos">
+          <%= image_tag @baker.photo, class: "round" %>
+          <h4 style="color:wheat;"><%= @baker.firstname %> <%= @baker.lastname %></h4>
 
-        <p>
-          <strong>Address:</strong>
+        <p style="color: white;">
           <%= @baker.address %>
         </p>
-        <p>
-          <strong>Average Rate:</strong>
+         <p style="color: white;">
+       <!--    <strong>Average Rate:</strong> -->
           <% if @baker.averagerate.blank?%>
-            <p> <%=@baker.firstname%> doesn't have rates yet. </p>
+            <h5><%= @baker.firstname%> doesn't have rates yet. </h5>
           <% else %>
           <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i if @baker.averagerate %>%" class="star-ratings-sprite-rating"></span></div>
           <%= '%.2f' %  @baker.averagerate %>
           <% end %>
         </p>
-
+        </div>
+        <div class="tabs">
+          <a class="tab active" data-target="#bio">
+            <h5>Profile</h5>
+          </a>
+          <a class="tab" data-target="#projects">
+            <h5>Orders</h5>
+          </a>
+          <a class="tab" data-target="#contact">
+            <h5>Reviews</h5>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="media-aside">
+
+
+    <div class=" tab-content box-general" id="bio">
+        <div class="bakercard hovercard" style="margin: 20px 20px 0 20px">
+          <div class="bakercardheader" style="padding:20px 0 20px 0">
+            <p id="notice"><%= notice %></p>
+
+            <h7>
+              <%= @baker.firstname %> <%= @baker.lastname %>
+            </h7>
+
+            <p style="padding: 20px 0 20px 0">
+              <%= image_tag @baker.photo %>
+            </p>
+
+            <p>
+              <strong>About me:</strong>
+              <%= @baker.description %>
+            </p>
+
+            <p>
+              <strong>Address:</strong>
+              <%= @baker.address %>
+            </p>
+
+            <p>
+              <strong>Average Rate:</strong>
+              <% if @baker.averagerate.blank?%>
+                <h5><%= @baker.firstname%> doesn't have rates yet. </h5>
+              <% else %>
+              <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i if @baker.averagerate %>%" class="star-ratings-sprite-rating"></span></div>
+              <%= '%.2f' %  @baker.averagerate %>
+              <% end %>
+            </p>
+
+            <div class="bottom">
+              <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/sweetjoy">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a class="btn btn-danger btn-sm" rel="publisher"
+              href="https://plus.google.com/+sweetjoy">
+                <i class="fa fa-google-plus"></i>
+              </a>
+              <a class="btn btn-primary btn-sm" rel="publisher"
+              href="https://plus.google.com/sweetjoy">
+                <i class="fa fa-facebook"></i>
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="box-item2" style="margin: 20px;">
+
+          <%= render 'form' %>
+
+          <%= link_to 'Show', @baker %>
+        </div>
+      </div>
+
+
+<div class="tab-content hidden" id="projects">
+  <div class="container">
+    <div class="media-aside">
     <div class="media-section">
-      <h4>Your Orders</h4>
-        <% if @baker.orders %>
+      <h7>Your Orders</h7>
+          <div class="panel-body">
+        <% if @baker.orders.present? %>
           <% @baker.orders.each do |order| %>
             <div>
               <hr class="style-four">
@@ -57,22 +126,21 @@
           <p>You don't have any order yet.</p>
         <% end %>
     </div>
+    </div>
   </div>
 </div>
+      </div>
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Your Reviews
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
+
+      <div class="tab-content hidden" id="contact">
+      <div class="container" style="padding-bottom: 50px">
+<div class="media-aside">
+    <div class="media-section">
+
+  <h7>Your Reviews</h7>
+        <div class="panel-body">
        <% if @baker.reviews.blank? %>
-        <h5><%= @baker.firstname %> doesn't have reviews yet</h5>
+        <h5>You don't have reviews yet.</h5>
        <% else %>
         <% @baker.reviews.each do |review| %>
           <p><%= image_tag 'nophoto.png', class: 'avatar-large'%></p>
@@ -81,6 +149,18 @@
         <% end %>
        <% end %>
      </div>
-   </div>
- </div>
-</div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="javascript/tabs.js"></script>
+
+
+
+
+
+
+
