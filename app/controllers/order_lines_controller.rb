@@ -19,7 +19,7 @@ class OrderLinesController < ApplicationController
     @order_line.product = @product
     @order_line.quantity = 1
     if @order_line.save
-      redirect_to order_path(@order_line.order), notice: 'Product was successfully added in your cart.'
+      redirect_to cart_path, notice: 'Product was successfully added in your cart.'
     else
       redirect_to product_path(@product)
     end
@@ -30,7 +30,7 @@ end
 
 def update
   @order_line.update(order_line_params)
-  redirect_to order_path(@order_line.order)
+  redirect_to cart_path
 end
 
 private

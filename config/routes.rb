@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resource :cart, only: [:show]
+
   resources :orders do
     resources :payments, only: [:new, :create]
   end

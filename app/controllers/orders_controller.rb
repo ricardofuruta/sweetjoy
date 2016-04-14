@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @product = Product.find(params[:id])
+    # @product = Product.find(params[:id])
   end
 
   # GET /orders/new
