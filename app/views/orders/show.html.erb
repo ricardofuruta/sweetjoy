@@ -64,7 +64,7 @@
       </div>
       <div class="media-section">
         <h7>Status: <%= image_tag 'paid.png', class:'paid-image fadeIn' %></h7>
-        <%= button_to 'Go Back', baker_path(@order.baker), class:"checkout" %>
+        <%= button_to 'Go Back', baker_path(@order.baker), method: :get, class:"checkout" %>
       </div>
     </div>
   </div>
