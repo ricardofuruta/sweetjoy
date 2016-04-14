@@ -1,7 +1,7 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon" style="padding-top: 4px">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+    <%= image_tag params[:action] == 'home' ? "white-logo.png" : "logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -52,9 +52,9 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-    <% if current_user.baker.blank? %>
+    <%#if current_user.baker.blank? %>
     <%= link_to t(".top_call_to_action", default: "Become a Baker"), new_baker_path, class: "btn btn-default" %>
-    <% end %>
+    <%#end %>
 
 
     <% if user_signed_in? %>

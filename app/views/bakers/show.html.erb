@@ -19,81 +19,86 @@
         </p>
         </div>
         <div class="tabs">
-          <a class="tab active" data-target="#bio">
+          <a class="tab active" href='#bio' data-target="#bio">
             <h5>About me</h5>
           </a>
-          <a class="tab" data-target="#projects">
+          <a class="tab" data-target="#projects" href="#projects">
             <h5>Shop</h5>
           </a>
-          <a class="tab" data-target="#contact">
+          <a class="tab" data-target="#contact" href="#contact">
             <h5>Reviews</h5>
           </a>
         </div>
       </div>
     </div>
 
+
+
+
       <div class="tab-content" id="bio">
-<div class="container list-inline">
-  <div class="col-sm-12 col-lg-6 col-sm-6 col-md-offset-3">
-    <div class="bakercard hovercard" style="margin: 0 20px 0 20px">
+
+    <div class="bakercard hovercard" style="margin: 0 20px 20px 20px">
       <div class="bakercardheader">
-        <p id="notice"><%= notice %></p>
 
-        <h7>
-          <%= @baker.firstname %> <%= @baker.lastname %>
-        </h7>
+        <p style="padding: 20px 0 20px 0">
+            <h7>
+              <%= @baker.firstname %> <%= @baker.lastname %>
+            </h7>
+            </p>
 
-        <p>
-          <%= image_tag @baker.photo %>
-        </p>
+            <p style="padding: 20px 0 20px 0">
+              <%= image_tag @baker.photo %>
+            </p>
 
-        <p>
-          <strong>About me:</strong>
-          <%= @baker.description %>
-        </p>
+            <p>
+              <strong>About me:</strong>
+              <%= @baker.description %>
+            </p>
 
-        <p>
-          <strong>Address:</strong>
-          <%= @baker.address %>
-        </p>
+            <p>
+              <strong>Address:</strong>
+              <%= @baker.address %>
+            </p>
 
-        <p>
-          <strong>Average Rate:</strong>
-          <% if @baker.averagerate.blank?%>
-            <h5><%= @baker.firstname%> doesn't have rates yet. </h5>
-          <% else %>
-          <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i if @baker.averagerate %>%" class="star-ratings-sprite-rating"></span></div>
-          <%= '%.2f' %  @baker.averagerate %>
-          <% end %>
-        </p>
+            <p>
+              <strong>Average Rate:</strong>
+              <% if @baker.averagerate.blank?%>
+                <h5><%= @baker.firstname%> doesn't have rates yet. </h5>
+              <% else %>
+              <div class="star-ratings-sprite"><span style="width:<%= (@baker.averagerate * 20).to_i if @baker.averagerate %>%" class="star-ratings-sprite-rating"></span></div>
+              <%= '%.2f' %  @baker.averagerate %>
+              <% end %>
+            </p>
 
-        <div class="bottom">
-          <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/sweetjoy">
-            <i class="fa fa-twitter"></i>
-          </a>
-          <a class="btn btn-danger btn-sm" rel="publisher"
-          href="https://plus.google.com/+sweetjoy">
-            <i class="fa fa-google-plus"></i>
-          </a>
-          <a class="btn btn-primary btn-sm" rel="publisher"
-          href="https://plus.google.com/sweetjoy">
-            <i class="fa fa-facebook"></i>
-          </a>
+            <div class="bottom">
+              <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/sweetjoy">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a class="btn btn-danger btn-sm" rel="publisher"
+              href="https://plus.google.com/+sweetjoy">
+                <i class="fa fa-google-plus"></i>
+              </a>
+              <a class="btn btn-primary btn-sm" rel="publisher"
+              href="https://plus.google.com/sweetjoy">
+                <i class="fa fa-facebook"></i>
+              </a>
 
+            </div>
+
+          </div>
         </div>
 
-      </div>
-    </div>
-  </div>
 
   </div>
 
 
-      </div>
       <div class="tab-content hidden" id="projects">
        <div class="container">
-  <div class="row">
-    <h4 class="text-center">See <%=@baker.firstname%>'s collection</h4>
+
+  <div class="row text-center" style="padding-bottom: 40px;">
+    <h7>See <%=@baker.firstname%>'s collection</h7>
+    </div>
+
     <% @baker.products.each do |product| %>
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 column productbox">
 
@@ -129,7 +134,7 @@
       <div class="tab-content hidden" id="contact">
       <div class="container" style="padding-bottom: 50px">
 
-  <h4>Reviews</h4>
+  <h7>Reviews</h7>
   <!-- Iterating to check if the user has a order to this baker -->
   <% has_order = false %>
   <% @baker.products.each do |product| %>
@@ -148,7 +153,7 @@
         <div class="star-ratings-sprite"><span style="width:<%= (review.rate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
       <% end %>
     <% end %>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-add-order-details">Add a new review</button>
+    <button type="button padded" class="btn btn-primary" data-toggle="modal" data-target=".bs-add-order-details">Add a new review</button>
   <% else %>
     <% if @baker.reviews.blank? %>
       <h5><%= @baker.firstname %> doesn't have reviews yet</h5>
@@ -156,7 +161,8 @@
       <% @baker.reviews.each do |review| %>
           <p><%= image_tag 'nophoto.png', class: 'avatar-large'%></p>
           <p><%=review.content%></p>
-          <div class="star-ratings-sprite"><span style="width:<%= (review.rate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
+          <div class="star-ratings-sprite">
+          <span style="width:<%= (review.rate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
       <% end %>
     <% end %>
   <% end %>
