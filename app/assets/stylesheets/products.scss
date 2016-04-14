@@ -95,13 +95,18 @@
 }
 
 .productbox {
-    background-color:#ffffff;
+  background-color:#ffffff;
   padding:10px;
   margin-bottom:10px;
   min-height: 150px;
   -webkit-box-shadow: 0 8px 6px -6px  #999;
      -moz-box-shadow: 0 8px 6px -6px  #999;
           box-shadow: 0 8px 6px -6px #999;
+
+  img {
+    height: 265px;
+    object-fit: cover;
+  }
 
 }
 

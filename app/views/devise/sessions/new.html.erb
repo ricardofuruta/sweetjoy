@@ -3,9 +3,9 @@
 
 <div class="container padded">
 <div class="centered-form">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3" style="border: 1px solid grey; padding: 50px 20px 0 20px">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3" style="border: 1px solid grey; padding: 50px 20px 0 20px; background: white;">
 
-              <div style="padding-bottom: 20px">
+              <div style="padding-bottom: 20px; color: black; opacity: 0.3;">
               <h7>Log in</h7>
               </div>
 
@@ -16,13 +16,14 @@
 
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
+  <div class="form-inputs" style="color: black;">
     <%= f.input :email, required: false, autofocus: true %>
     <%= f.input :password, required: false %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-inputs" style="color: black;">
+  <div class="form-actions" >
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
@@ -31,6 +32,7 @@
 <%= render "devise/shared/links" %>
 </div>
 
+</div>
 </div>
 </div>
 </div>
