@@ -1,194 +1,71 @@
-<div class="container padded">
-  <h7>Your Shopping Cart</h7>
+
+<div class="container text-center checkout-title">
+  <h7>Check the details of your order</h7>
 </div>
 
+  <div class="media">
+    <div class="media-body">
+      <div class="media-section">
+        <div class='checkout-title'>
+          <h7>Products Details</h7>
+        </div>
+        <div class="shopping-cart" style="margin-right: 150px">
 
-<div class="shopping-cart" style="margin-right: 150px">
+          <div class="column-labels">
+            <label class="product-image">Image</label>
+            <label class="product-details">Product</label>
+            <label class="product-price">Price</label>
+            <label class="product-quantity">Quantity</label>
+            <label class="product-line-price">Total</label>
+          </div>
+          <%# sum = Money.new(0, 'EUR') %>
+          <% @order.order_lines.each_with_index do |order_line| %>
+          <%# sum += (order_line.product.price * order_line.quantity) %>
+          <div class="product">
+            <div class="product-image">
+              <%= image_tag order_line.product.photo %>
+            </div>
+            <div class="product-details">
+              <div class="product-title"><%= order_line.product.name %></div>
+              <p class="product-description"><%= order_line.product.description%></p>
+            </div>
+            <div class="product-price"><%= order_line.product.price %></div>
+            <div class="product-quantity">
 
-  <div class="column-labels">
-    <label class="product-image">Image</label>
-    <label class="product-details">Product</label>
-    <label class="product-price">Price</label>
-    <label class="product-quantity">Quantity</label>
-    <label class="product-removal">Remove</label>
-    <label class="product-line-price">Total</label>
+              <%=  order_line.quantity %>
+
+              <!-- <input type="number" value="1" min="1"> -->
+            </div>
+            <div class="product-line-price"><%= order_line.product.price * order_line.quantity %></div>
+          </div>
+          <% end %>
+
+          <div class="totals">
+            <div class="totals-item">
+              <label>Total</label>
+
+              <div class="totals-value" id="cart-subtotal"><%= number_with_precision((@order.total / 100), :precision => 2 ) %></div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="media-aside">
+      <div class="media-section">
+      <h7>Delivery Details</h7>
+        <div class='order-details'>
+          <p> <strong>Name:</strong> <%=@order.fullname%> </p>
+          <p> <strong>Delivery Address:</strong> <%=@order.delivery_address%> </p>
+          <p> <strong>Delivery Date:</strong> <%=@order.delivery_date%> </p>
+          <p> <strong>Delivery instructions:</strong> <%=@order.instructions%> </p>
+        </div>
+      </div>
+      <div class="media-section">
+
+      </div>
+    </div>
   </div>
-  <%# sum = Money.new(0, 'EUR') %>
-  <% @order.order_lines.each_with_index do |order_line| %>
-  <%# sum += (order_line.product.price * order_line.quantity) %>
-    <div class="product">
-      <div class="product-image">
-        <%= image_tag order_line.product.photo %>
-      </div>
-      <div class="product-details">
-        <div class="product-title"><%= order_line.product.name %></div>
-        <p class="product-description"><%= order_line.product.description%></p>
-      </div>
-      <div class="product-price"><%= order_line.product.price %></div>
-      <div class="product-quantity">
-
-        <%= simple_form_for [order_line.product, order_line] do |f|  %>
-          <%=f.input :quantity, collection: (1..10), class: 'qty_changer', prompt: order_line.quantity %>
-        <% end %>
-
-        <!-- <input type="number" value="1" min="1"> -->
-      </div>
-      <div class="product-removal">
-        <button class="remove-product">
-          Remove
-        </button>
-      </div>
-      <div class="product-line-price"><%= order_line.product.price * order_line.quantity %></div>
-    </div>
-  <% end %>
-
-  <div class="totals">
-    <div class="totals-item">
-      <label>Total</label>
-
-      <div class="totals-value" id="cart-subtotal"><%= number_with_precision((@order.total / 100), :precision => 2 ) %></div>
-
-    </div>
-    <div class="totals-item hidden">
-      <label>Tax (5%)</label>
-      <div class="totals-value" id="cart-tax">3.60</div>
-    </div>
-    <div class="totals-item hidden">
-      <label>Shipping</label>
-      <div class="totals-value" id="cart-shipping">15.00</div>
-    </div>
-    <div class="totals-item totals-item-total hidden">
-      <label>Grand Total</label>
-      <div class="totals-value" id="cart-total">90.57</div>
-    </div>
-  </div>
-</div>
-  <%= render 'orders/form', order: @order %>
-
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-/* Set rates + misc */
-var taxRate = 0.05;
-var shippingRate = 15.00;
-var fadeTime = 300;
-
-
-/* Assign actions */
-$('.product-quantity input').change( function() {
-  updateQuantity(this);
-});
-
-$('.product-removal button').click( function() {
-  removeItem(this);
-});
-
-
-/* Recalculate cart */
-function recalculateCart()
-{
-  var subtotal = 0;
-
-  /* Sum up row totals */
-  $('.product').each(function () {
-    subtotal += parseFloat($(this).children('.product-line-price').text());
-  });
-  /* Update totals display */
-  /* Update totals display */
-
-  /* Calculate totals */
-  var tax = subtotal * taxRate;
-  var shipping = (subtotal > 0 ? shippingRate : 0);
-  var total = subtotal + tax + shipping;
-
-  /* Update totals display */
-  $('.totals-value').fadeOut(fadeTime, function() {
-    $('#cart-subtotal').html(subtotal.toFixed(2));
-    $('#cart-tax').html(tax.toFixed(2));
-    $('#cart-shipping').html(shipping.toFixed(2));
-    $('#cart-total').html(total.toFixed(2));
-    if(total == 0){
-      $('.checkout').fadeOut(fadeTime);
-    }else{
-      $('.checkout').fadeIn(fadeTime);
-    }
-    $('.totals-value').fadeIn(fadeTime);
-  });
-}
-
-
-/* Update quantity */
-function updateQuantity(quantityInput)
-{
-  /* Calculate line price */
-  var productRow = $(quantityInput).parent().parent();
-  var price = parseFloat(productRow.children('.product-price').text());
-  var quantity = $(quantityInput).val();
-  var linePrice = price * quantity;
-
-  /* Update line price display and recalc cart totals */
-  productRow.children('.product-line-price').each(function () {
-    $(this).fadeOut(fadeTime, function() {
-      $(this).text(linePrice.toFixed(2));
-      recalculateCart();
-      $(this).fadeIn(fadeTime);
-    });
-  });
-}
-
-
-/* Remove item from cart */
-function removeItem(removeButton)
-{
-  /* Remove row from DOM and recalc cart total */
-  var productRow = $(removeButton).parent().parent();
-  productRow.slideUp(fadeTime, function() {
-    productRow.remove();
-    recalculateCart();
-  });
-}
-  <% end %>
-
-  <script>
-    $(document).ready(function(){
-      $('.edit_order_line').change(function(){
-        console.log('hello')
-        $(this).submit();
-      })
-    })
-  </script>
-<% end %>
-
-  <!-- <p>
-    <strong>User:</strong>
-    <%= @order.user %>
-  </p>
-
-  <p>
-    <strong>Delivery address:</strong>
-    <%= @order.delivery_address %>
-  </p>
-
-  <p>
-    <strong>Delivery date:</strong>
-    <%= @order.delivery_date %>
-  </p>
-
-  <%#= link_to 'Edit', edit_order_path(@order) %> |
-  <%#= link_to 'Back', orders_path %> -->
-
-
-
-  <!-- <script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
-  <script>
-    // In a production-ready integration, you will need to
-    // generate a client token on your server
-    var clientToken = "eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiI4YjlhZjBhYzllNTFkOThlNWUwMWI5N2VlYWNkMDdkMzU1YzhkMTZiMWQzNjQwZjFiMTYwMGJmZmU3MDA4MTdmfGNyZWF0ZWRfYXQ9MjAxNi0wNC0wOVQxOTozNzoyOC41ODI2NDYyNzIrMDAwMFx1MDAyNm1lcmNoYW50X2lkPTM0OHBrOWNnZjNiZ3l3MmJcdTAwMjZwdWJsaWNfa2V5PTJuMjQ3ZHY4OWJxOXZtcHIiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvMzQ4cGs5Y2dmM2JneXcyYi9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbXSwiZW52aXJvbm1lbnQiOiJzYW5kYm94IiwiY2xpZW50QXBpVXJsIjoiaHR0cHM6Ly9hcGkuc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzLzM0OHBrOWNnZjNiZ3l3MmIvY2xpZW50X2FwaSIsImFzc2V0c1VybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXV0aFVybCI6Imh0dHBzOi8vYXV0aC52ZW5tby5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tIiwiYW5hbHl0aWNzIjp7InVybCI6Imh0dHBzOi8vY2xpZW50LWFuYWx5dGljcy5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tLzM0OHBrOWNnZjNiZ3l3MmIifSwidGhyZWVEU2VjdXJlRW5hYmxlZCI6dHJ1ZSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImRpc3BsYXlOYW1lIjoiQWNtZSBXaWRnZXRzLCBMdGQuIChTYW5kYm94KSIsImNsaWVudElkIjpudWxsLCJwcml2YWN5VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3BwIiwidXNlckFncmVlbWVudFVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS90b3MiLCJiYXNlVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhc3NldHNVcmwiOiJodHRwczovL2NoZWNrb3V0LnBheXBhbC5jb20iLCJkaXJlY3RCYXNlVXJsIjpudWxsLCJhbGxvd0h0dHAiOnRydWUsImVudmlyb25tZW50Tm9OZXR3b3JrIjp0cnVlLCJlbnZpcm9ubWVudCI6Im9mZmxpbmUiLCJ1bnZldHRlZE1lcmNoYW50IjpmYWxzZSwiYnJhaW50cmVlQ2xpZW50SWQiOiJtYXN0ZXJjbGllbnQzIiwiYmlsbGluZ0FncmVlbWVudHNFbmFibGVkIjp0cnVlLCJtZXJjaGFudEFjY291bnRJZCI6ImFjbWV3aWRnZXRzbHRkc2FuZGJveCIsImN1cnJlbmN5SXNvQ29kZSI6IlVTRCJ9LCJjb2luYmFzZUVuYWJsZWQiOmZhbHNlLCJtZXJjaGFudElkIjoiMzQ4cGs5Y2dmM2JneXcyYiIsInZlbm1vIjoib2ZmIn0=";
-
-    braintree.setup(clientToken, "dropin", {
-      container: "payment-form"
-    });
-  </script> -->
-
 
 
