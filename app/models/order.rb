@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
 
 
   def is_open?
-    state = 'OPEN'
+    state == 'OPEN'
   end
 
   def total
