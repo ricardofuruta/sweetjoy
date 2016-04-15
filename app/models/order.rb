@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :baker
-  has_many :order_lines
+  has_many :order_lines, dependent: :destroy
   monetize :amount_cents
 
 

@@ -1,8 +1,8 @@
 class Baker < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
-  has_many :products
-  has_many :reviews
-  has_many :orders
+  has_many :products, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :orders, dependent: :destroy
   belongs_to :user
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
