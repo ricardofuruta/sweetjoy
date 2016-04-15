@@ -91,11 +91,11 @@ product[:photo] = "image/upload/v1460725982/xofpsxwrvdc7nrkzqxzm.jpg"
 product.save!
 
 product = Product.new({name:'10 Brownies', description: 'Chocolate brownies filled Dulce de Leche.', price: 20.00, baker: baker2})
-product[:photo] = "image/upload/v1460726023/lbce7lsvnfzj17ghoqwk.jpg"
+product[:photo] = "image/upload/v1460727044/wuku2mv8fo2t6qwqfumd.jpg"
 product.save!
 
 product = Product.new({name:'Box with truffles', description: 'Box with 6 truffles: strawberry, chocolate, brigadeiro, banana, brazilian nuts', price: 10.00, baker: baker2})
-product[:photo] = "image/upload/v1460726063/mhb98elfk94fejcwitjg.jpg"
+product[:photo] = "image/upload/v1460727344/cckczq1me3aoci3aftqu.jpg"
 product.save!
 
 product = Product.new({name:'50 Brigadeiros', description: 'Brigadeiro is a brazilian candy. Flavors: chocolate, pistachio, brazilian nuts, white chocolate, coconut', price: 70.00, baker: baker3})
