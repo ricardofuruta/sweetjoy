@@ -34,7 +34,7 @@ joicy = Baker.new(
    user: user1,
    averagerate: 4.5
    })
-joicy[:photo] = "v1460706173/mcc5al0xmm4vfhzadaii.jpg"
+joicy[:photo] = "image/upload/v1460725545/aoqtlomnypxsgog9kkvu.jpg"
 joicy.save!
 
 baker2 = Baker.new(
@@ -44,7 +44,7 @@ baker2 = Baker.new(
    address: 'Rue des Teinturiers 19, Bruxelles',
    user: user2,
    })
-baker2[:photo] = "v1460581350/toivpk5c0ujbupw6dqnu.jpg"
+baker2[:photo] = "image/upload/v1460725607/ervbiv1pr16iweshcptp.jpg"
 baker2.save!
 
 baker3 = Baker.new(
@@ -54,7 +54,7 @@ baker3 = Baker.new(
    address: 'Rue Botanique 59, Brussels',
    user: user3,
    })
-baker3[:photo] = "v1460581351/ib0aavcnt6ixzdaimtqe.jpg"
+baker3[:photo] = "image/upload/v1460725663/irlwinzcf6ginp435xpf.jpg"
 baker3.save!
 
 baker4 = Baker.new(
@@ -64,46 +64,46 @@ baker4 = Baker.new(
    address: ' Grand Place 15, Bruxelles',
    user: user4,
    })
-baker4[:photo] = "v1460581352/zryz740kctlte4vmxcmg.jpg"
+baker4[:photo] = "image/upload/v1460725715/o8rb5s64ixzbtkste7ap.jpg"
 baker4.save!
 
 # Products
 puts "Creating Products..."
 
 product = Product.new({name:'Kit Kat Cake', description: 'Cake made with Kit Kat, M&Ms, brigadeiro and chocolate', price: 100.00, baker: joicy})
-product[:photo] = "v1460581356/oiucjmirtmsggbnuwcye.jpg"
+product[:photo] = "image/upload/v1460725763/qxnraa1dw6imcgvgoddc.jpg"
 product.save!
 
 product = Product.new({name:'Chocolate Cake', description: 'Cake with chocolate topping, with chocolate dought and filled with brigadeiro', price: 80.00, baker: joicy})
-product[:photo] = "v1460581357/oavh31yzdakcpifzubol.jpg"
+product[:photo] = "image/upload/v1460725834/yjfnpcuoimmxdwxgrhfr.jpg"
 product.save!
 
 product = Product.new({name:'Cake with flower decoration', description: 'Cake with chocolate topping decored with flowers filled with vanilla and dulce de leche', price: 70.00, baker: joicy})
-product[:photo] = "v1460581358/jyb9gstwqhw3pxajm9j0.jpg"
+product[:photo] = "image/upload/v1460725881/zlekcnkpmthv586rumaf.jpg"
 product.save!
 
 product = Product.new({name:'Strawberry naked cake', description: 'Naked cake with strawberry on top filled with white chocolate ganache', price: 60.00, baker: joicy})
-product[:photo] = "v1460581359/fgrtb0oagzk0vbzvbyx4.jpg"
+product[:photo] = "image/upload/v1460725924/ksldi3xsddhmrhwfzqb5.jpg"
 product.save!
 
 product = Product.new({name:'Colored Cake', description: 'White Chocolate topping, with vanilla dought and filled Dulce de Leche.', price: 70.00, baker: baker2})
-product[:photo] = "v1460581360/dguggfftw37k9a45xbsn.jpg"
+product[:photo] = "image/upload/v1460725982/xofpsxwrvdc7nrkzqxzm.jpg"
 product.save!
 
 product = Product.new({name:'10 Brownies', description: 'Chocolate brownies filled Dulce de Leche.', price: 20.00, baker: baker2})
-product[:photo] = "v1460581361/nd4nud5jmipnvjist9va.jpg"
+product[:photo] = "image/upload/v1460726023/lbce7lsvnfzj17ghoqwk.jpg"
 product.save!
 
 product = Product.new({name:'Box with truffles', description: 'Box with 6 truffles: strawberry, chocolate, brigadeiro, banana, brazilian nuts', price: 10.00, baker: baker2})
-product[:photo] = "v1460581362/nn81epbhclgyfkpumsfw.jpg"
+product[:photo] = "image/upload/v1460726063/mhb98elfk94fejcwitjg.jpg"
 product.save!
 
 product = Product.new({name:'50 Brigadeiros', description: 'Brigadeiro is a brazilian candy. Flavors: chocolate, pistachio, brazilian nuts, white chocolate, coconut', price: 70.00, baker: baker3})
-product[:photo] = "v1460581363/xcmg09ujlasjg58e6946.jpg"
+product[:photo] = "image/upload/v1460726119/phy91km3rxadyorwwxl9.jpg"
 product.save!
 
 product = Product.new({name:'Cupcakes', description: 'White Chocolate topping, with vanilla dought and filled Dulce de Leche.', price: 70.00, baker: baker4})
-product[:photo] = "v1460581364/rb5ebv4u9cdiy5yku4ob.jpg"
+product[:photo] = "image/upload/v1460726162/oyve8y0sc6v4hfd3u2rb.jpg"
 product.save!
 
 # Reviews
