@@ -144,7 +144,7 @@
         <% @baker.reviews.each do |review| %>
           <p><%= image_tag 'nophoto.png', class: 'avatar-large'%></p>
           <p><%=review.content%></p>
-          <div class="star-ratings-sprite"><span style="width:<%= (review.rate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
+          <div class="star-ratings-sprite-review"><span style="width:<%= (review.rate * 20).to_i %>%" class="star-ratings-sprite-rating"></span></div>
         <% end %>
        <% end %>
      </div>
