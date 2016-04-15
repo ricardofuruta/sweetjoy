@@ -44,7 +44,7 @@ baker2 = Baker.new(
    address: 'Rue des Teinturiers 19, Bruxelles',
    user: user2,
    })
-baker2[:photo] = "image/upload/v1460706174/wm3jfz9f4w0jybgh1m6t.jpg"
+baker2[:photo] = "v1460581350/toivpk5c0ujbupw6dqnu.jpg"
 baker2.save!
 
 baker3 = Baker.new(
@@ -54,7 +54,7 @@ baker3 = Baker.new(
    address: 'Rue Botanique 59, Brussels',
    user: user3,
    })
-baker3[:photo] = "image/upload/v1460706175/rq0dxmr3ydrguizbqfna.jpg"
+baker3[:photo] = "v1460581351/ib0aavcnt6ixzdaimtqe.jpg"
 baker3.save!
 
 baker4 = Baker.new(
@@ -64,14 +64,14 @@ baker4 = Baker.new(
    address: ' Grand Place 15, Bruxelles',
    user: user4,
    })
-baker4[:photo] = "image/upload/v1460706176/eu3dg1muzftokegg3tsu.jpg"
+baker4[:photo] = "v1460581352/zryz740kctlte4vmxcmg.jpg"
 baker4.save!
 
 # Products
 puts "Creating Products..."
 
 product = Product.new({name:'Kit Kat Cake', description: 'Cake made with Kit Kat, M&Ms, brigadeiro and chocolate', price: 100.00, baker: joicy})
-product[:photo] = "image/upload/v1460706177/imyhcby4dtqtblo2g9xo.jpg"
+product[:photo] = "v1460581356/oiucjmirtmsggbnuwcye.jpg"
 product.save!
 
 product = Product.new({name:'Chocolate Cake', description: 'Cake with chocolate topping, with chocolate dought and filled with brigadeiro', price: 80.00, baker: joicy})
