@@ -75,35 +75,35 @@ product[:photo] = "v1460581356/oiucjmirtmsggbnuwcye.jpg"
 product.save!
 
 product = Product.new({name:'Chocolate Cake', description: 'Cake with chocolate topping, with chocolate dought and filled with brigadeiro', price: 80.00, baker: joicy})
-product[:photo] = "image/upload/v1460706178/zu3pgl0ce6quhaaim9ys.jpg"
+product[:photo] = "v1460581357/oavh31yzdakcpifzubol.jpg"
 product.save!
 
 product = Product.new({name:'Cake with flower decoration', description: 'Cake with chocolate topping decored with flowers filled with vanilla and dulce de leche', price: 70.00, baker: joicy})
-product[:photo] = "image/upload/v1460706179/l1nqadfz9kye5myjxefz.jpg"
+product[:photo] = "v1460581358/jyb9gstwqhw3pxajm9j0.jpg"
 product.save!
 
 product = Product.new({name:'Strawberry naked cake', description: 'Naked cake with strawberry on top filled with white chocolate ganache', price: 60.00, baker: joicy})
-product[:photo] = "image/upload/v1460706180/hmeqqpqan0qo02kmixeq.jpg"
+product[:photo] = "v1460581359/fgrtb0oagzk0vbzvbyx4.jpg"
 product.save!
 
 product = Product.new({name:'Colored Cake', description: 'White Chocolate topping, with vanilla dought and filled Dulce de Leche.', price: 70.00, baker: baker2})
-product[:photo] = "image/upload/v1460706181/ey62u5mfggvhsahlzgne.jpg"
+product[:photo] = "v1460581360/dguggfftw37k9a45xbsn.jpg"
 product.save!
 
 product = Product.new({name:'10 Brownies', description: 'Chocolate brownies filled Dulce de Leche.', price: 20.00, baker: baker2})
-product[:photo] = "image/upload/v1460706182/r5rbfxomud1dauwjoson.jpg"
+product[:photo] = "v1460581361/nd4nud5jmipnvjist9va.jpg"
 product.save!
 
 product = Product.new({name:'Box with truffles', description: 'Box with 6 truffles: strawberry, chocolate, brigadeiro, banana, brazilian nuts', price: 10.00, baker: baker2})
-product[:photo] = "image/upload/v1460706183/igobq2odjhvfdsflybyq.jpg"
+product[:photo] = "v1460581362/nn81epbhclgyfkpumsfw.jpg"
 product.save!
 
 product = Product.new({name:'50 Brigadeiros', description: 'Brigadeiro is a brazilian candy. Flavors: chocolate, pistachio, brazilian nuts, white chocolate, coconut', price: 70.00, baker: baker3})
-product[:photo] = "image/upload/v1460706184/jl90m2j1xpyb65gssv40.jpg"
+product[:photo] = "v1460581363/xcmg09ujlasjg58e6946.jpg"
 product.save!
 
 product = Product.new({name:'Cupcakes', description: 'White Chocolate topping, with vanilla dought and filled Dulce de Leche.', price: 70.00, baker: baker4})
-product[:photo] = "image/upload/v1460706185/yymenff9t2k8j5hywzkf.jpg"
+product[:photo] = "v1460581364/rb5ebv4u9cdiy5yku4ob.jpg"
 product.save!
 
 # Reviews
