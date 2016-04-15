@@ -114,3 +114,4 @@ joicy.reviews.create!(user: jess, rate: 5, content: "One of the best chocolate c
 joicy.reviews.create!(user: robert, rate: 4, content: "It was a beautiful touch to our special occasion")
 
 puts "DONE!"
+#
